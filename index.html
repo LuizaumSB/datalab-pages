@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DataLab — Dashboards prontos para o seu negócio</title>
+  <meta name="description" content="Dashboards HTML profissionais que funcionam com a sua planilha. Sem Power BI, sem mensalidade, 100% offline.">
+  <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;📊&lt;/text&gt;&lt;/svg&gt;">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      background: #0d0d0d; color: #fff; min-height: 100dvh;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: 32px 20px; text-align: center; line-height: 1.6;
+    }
+    .logo { font-size: 34px; font-weight: 750; letter-spacing: -0.02em; }
+    .logo span { color: #3987e5; }
+    .tag { color: #c3c2b7; margin: 10px 0 40px; font-size: 17px; max-width: 460px; }
+    .cards { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+    a.card {
+      display: block; width: 300px; text-align: left; text-decoration: none; color: inherit;
+      background: #1a1a19; border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 14px; padding: 22px; transition: border-color 0.2s, transform 0.15s;
+    }
+    a.card:hover { border-color: #3987e5; transform: translateY(-2px); }
+    a.card:focus-visible { outline: 3px solid #3987e5; outline-offset: 3px; }
+    .card h2 { font-size: 18px; margin-bottom: 6px; }
+    .card p { color: #c3c2b7; font-size: 14px; }
+    .card .go { color: #3987e5; font-size: 14px; font-weight: 600; margin-top: 14px; display: inline-block; }
+    .soon { opacity: 0.55; pointer-events: none; }
+    footer { margin-top: 56px; color: #898781; font-size: 13px; }
+  </style>
+</head>
+<body>
+  <div class="logo">Data<span>Lab</span></div>
+  <p class="tag">Dashboards profissionais que funcionam com a sua planilha. Sem Power BI, sem mensalidade, 100% offline.</p>
+  <div class="cards">
+    <a class="card" href="financeiro/">
+      <h2>Dashboard Financeiro</h2>
+      <p>Fluxo de caixa, resultado, margem e despesas por categoria direto da sua planilha.</p>
+      <span class="go">Conhecer →</span>
+    </a>
+    <div class="card soon" aria-disabled="true">
+      <h2>Dashboard Comercial</h2>
+      <p>Vendas, ticket médio, metas e clientes em um painel pronto.</p>
+      <span class="go">Em breve</span>
+    </div>
+  </div>
+  <footer>© 2026 DataLab · DashboardKit</footer>
+</body>
+</html>
