@@ -1,457 +1,413 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard Financeiro — veja seu negócio em 60 segundos | DataLab</title>
-  <meta name="description" content="Transforme sua planilha em um dashboard financeiro profissional. Fluxo de caixa, resultado, margem e despesas por categoria — sem Power BI, sem mensalidade, 100% offline.">
-  <meta property="og:title" content="Dashboard Financeiro — DataLab">
-  <meta property="og:description" content="Sua planilha vira um dashboard profissional em 60 segundos. Pagamento único, sem mensalidade, 100% offline.">
-  <meta property="og:image" content="https://luizaumsb.github.io/datalab-pages/financeiro/img/hero-dark.png">
-  <meta property="og:type" content="website">
-  <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;📊&lt;/text&gt;&lt;/svg&gt;">
-  <style>
-    :root {
-      --bg: #0d0d0d;
-      --surface: #1a1a19;
-      --surface-2: #232322;
-      --border: rgba(255, 255, 255, 0.10);
-      --ink-1: #ffffff;
-      --ink-2: #c3c2b7;
-      --ink-3: #898781;
-      --blue: #3987e5;
-      --blue-deep: #2a78d6;
-      --cta: #eb6834;
-      --cta-hover: #f47a48;
-      --good: #1baf7a;
-      --radius: 14px;
-      --light-bg: #f9f9f7;
-      --light-surface: #fcfcfb;
-      --light-ink: #0b0b0b;
-      --light-ink-2: #52514e;
-      --light-border: rgba(11, 11, 11, 0.10);
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard Financeiro — veja seu negócio em 60 segundos | DataLab</title>
+<meta name="description" content="Transforme sua planilha em um dashboard financeiro profissional. Fluxo de caixa, resultado, margem e despesas por categoria — sem Power BI, sem mensalidade, 100% offline.">
+<meta property="og:title" content="Dashboard Financeiro — DataLab">
+<meta property="og:description" content="Sua planilha vira um dashboard profissional em 60 segundos. Pagamento único, sem mensalidade, 100% offline.">
+<meta property="og:image" content="https://luizaumsb.github.io/datalab-pages/financeiro/img/hero-dark.png">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Archivo:wght@800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;📊&lt;/text&gt;&lt;/svg&gt;">
+<style>
+/* ---------- estilos específicos da página do produto ---------- */
+section.block{padding:64px 0}
+.block-head{margin-bottom:32px}
+.block-head h2{margin-top:12px;font-family:var(--font-display);font-weight:900;font-size:clamp(24px,3.2vw,34px);line-height:1.1;letter-spacing:-.03em;text-transform:uppercase;max-width:760px}
+.block-head p{margin-top:12px;max-width:620px;font-size:16.5px;color:var(--ink-2)}
+.band{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.feature{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 22px}
+.band .feature{background:var(--page)}
+.feature .ic{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;margin-bottom:13px}
+.feature .ic svg{width:17px;height:17px;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.feature .ic.blue{background:rgba(57,135,229,.14)}
+.feature .ic.blue svg{stroke:var(--s1)}
+.feature .ic.red{background:rgba(230,103,103,.12)}
+.feature .ic.red svg{stroke:var(--delta-bad)}
+.feature h3{font:600 15.5px/1.3 var(--font-sans);margin-bottom:6px}
+.feature p{font:400 14px/1.55 var(--font-sans);color:var(--ink-2)}
 
-    html { scroll-behavior: smooth; }
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      * { transition: none !important; }
-    }
+.passo .num{width:34px;height:34px;border-radius:50%;background:var(--s1);color:#fff;font:700 15px/1 var(--font-mono);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.passos-obs{margin-top:22px;text-align:center;font:400 13px/1.6 var(--font-mono);color:var(--ink-3)}
 
-    body {
-      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-      background: var(--bg);
-      color: var(--ink-1);
-      font-size: 16px;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
+.shots-duo{display:grid;grid-template-columns:2.4fr 1fr;gap:12px;align-items:start;margin-top:32px}
+.shot-frame{border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;background:#f9f9f7}
+.shot-cap{margin-top:8px;font:400 11.5px/1.5 var(--font-mono);color:var(--ink-3);text-align:center}
 
-    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+.oferta-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.incluso-list{list-style:none}
+.incluso-list li{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--border);font:400 15.5px/1.5 var(--font-sans)}
+.incluso-list li:last-child{border-bottom:0}
+.incluso-list svg{width:17px;height:17px;flex:none;margin-top:4px;stroke:var(--good);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.incluso-list .muted{display:block;font-size:13.5px;color:var(--ink-3)}
+.price-card{background:var(--page);border:1px solid var(--border);border-radius:16px;padding:34px 30px;text-align:center}
+.price-card .plabel{font:500 10.5px/1 var(--font-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2)}
+.price-card .price{margin-top:12px;font:900 54px/1 var(--font-display);letter-spacing:-.03em}
+.price-card .price small{font-size:22px;font-weight:800;vertical-align:16px;margin-right:4px}
+.price-card .ponce{margin:8px 0 22px;font:400 12.5px/1 var(--font-mono);color:var(--ink-3)}
+.price-card .btn{width:100%;text-align:center}
+.price-card .garantia{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:16px;font:400 13px/1.4 var(--font-sans);color:var(--ink-2)}
+.price-card .garantia svg{width:16px;height:16px;flex:none;stroke:var(--good);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 
-    a { color: var(--blue); }
+.faq-list{max-width:720px}
+details{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:10px;overflow:hidden}
+summary{cursor:pointer;padding:17px 20px;font:600 15.5px/1.4 var(--font-sans);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--ink-3);font:400 20px/1 var(--font-mono);flex:none}
+details[open] summary::after{content:"–"}
+summary:focus-visible{outline:3px solid var(--s1);outline-offset:-3px}
+details .resp{padding:0 20px 18px;font:400 14.5px/1.6 var(--font-sans);color:var(--ink-2)}
 
-    img { max-width: 100%; height: auto; display: block; }
-
-    /* ---------- header ---------- */
-    header {
-      padding: 18px 0;
-      border-bottom: 1px solid var(--border);
-    }
-    header .wrap { display: flex; align-items: center; gap: 10px; }
-    .logo { font-weight: 700; font-size: 17px; letter-spacing: -0.01em; }
-    .logo .accent { color: var(--blue); }
-    .logo-sub { color: var(--ink-3); font-size: 12.5px; margin-top: 1px; }
-    header .spacer { flex: 1; }
-    .btn-mini {
-      background: var(--cta); color: #fff; text-decoration: none;
-      font-size: 14px; font-weight: 600; padding: 9px 16px; border-radius: 9px;
-      transition: background 0.2s;
-    }
-    .btn-mini:hover { background: var(--cta-hover); }
-
-    /* ---------- hero ---------- */
-    .hero { padding: 64px 0 0; text-align: center; }
-    .hero .badge {
-      display: inline-flex; align-items: center; gap: 7px;
-      border: 1px solid var(--border); border-radius: 999px;
-      color: var(--ink-2); font-size: 13.5px; padding: 6px 14px; margin-bottom: 22px;
-    }
-    .hero .badge .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--good); }
-    .hero h1 {
-      font-size: clamp(30px, 5vw, 46px);
-      line-height: 1.15; letter-spacing: -0.02em; font-weight: 750;
-      max-width: 820px; margin: 0 auto 18px;
-    }
-    .hero h1 .hl { color: var(--blue); }
-    .hero .sub {
-      color: var(--ink-2); font-size: clamp(16px, 2.2vw, 19px);
-      max-width: 640px; margin: 0 auto 30px;
-    }
-    .cta-btn {
-      display: inline-block; background: var(--cta); color: #fff; text-decoration: none;
-      font-size: 17px; font-weight: 700; padding: 16px 34px; border-radius: 12px;
-      transition: background 0.2s, transform 0.15s;
-      box-shadow: 0 8px 28px rgba(235, 104, 52, 0.35);
-    }
-    .cta-btn:hover { background: var(--cta-hover); transform: translateY(-1px); }
-    .cta-btn:focus-visible, .btn-mini:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
-    .trust-row {
-      display: flex; gap: 22px; justify-content: center; flex-wrap: wrap;
-      margin: 22px 0 0; color: var(--ink-2); font-size: 14px;
-    }
-    .trust-row span { display: inline-flex; align-items: center; gap: 7px; }
-    .ic { width: 17px; height: 17px; flex: none; stroke: var(--good); fill: none; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
-    .hero-shot {
-      margin: 46px auto 0; max-width: 980px;
-      border-radius: var(--radius) var(--radius) 0 0;
-      border: 1px solid var(--border); border-bottom: 0;
-      overflow: hidden;
-      box-shadow: 0 -10px 60px rgba(57, 135, 229, 0.12);
-    }
-
-    /* ---------- seções ---------- */
-    section { padding: 76px 0; }
-    .section-tag {
-      color: var(--blue); font-size: 13px; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.09em; margin-bottom: 12px;
-    }
-    h2 { font-size: clamp(24px, 3.6vw, 34px); letter-spacing: -0.015em; line-height: 1.2; margin-bottom: 14px; font-weight: 720; }
-    .section-sub { color: var(--ink-2); max-width: 620px; font-size: 17px; }
-
-    /* problema */
-    .problema { border-top: 1px solid var(--border); }
-    .prob-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 38px; }
-    .prob-card {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 24px;
-    }
-    .prob-card .x {
-      width: 34px; height: 34px; border-radius: 9px; display: flex; align-items: center; justify-content: center;
-      background: rgba(227, 73, 72, 0.14); margin-bottom: 14px;
-    }
-    .prob-card .x svg { width: 17px; height: 17px; stroke: #e66767; fill: none; stroke-width: 2.6; stroke-linecap: round; }
-    .prob-card h3 { font-size: 16.5px; margin-bottom: 7px; }
-    .prob-card p { color: var(--ink-2); font-size: 14.5px; }
-
-    /* como funciona */
-    .passos { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .passos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 38px; }
-    .passo {
-      background: var(--bg); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 26px 24px; position: relative;
-    }
-    .passo .num {
-      width: 34px; height: 34px; border-radius: 50%;
-      background: var(--blue-deep); color: #fff; font-weight: 700; font-size: 16px;
-      display: flex; align-items: center; justify-content: center; margin-bottom: 15px;
-    }
-    .passo h3 { font-size: 16.5px; margin-bottom: 7px; }
-    .passo p { color: var(--ink-2); font-size: 14.5px; }
-    .passos .obs { text-align: center; color: var(--ink-3); font-size: 14px; margin-top: 26px; }
-
-    /* o que mostra */
-    .mostra-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 38px 0; }
-    .mostra-card {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 20px 22px;
-    }
-    .mostra-card .ic-box {
-      width: 34px; height: 34px; border-radius: 9px; display: flex; align-items: center; justify-content: center;
-      background: rgba(57, 135, 229, 0.14); margin-bottom: 13px;
-    }
-    .mostra-card .ic-box svg { width: 17px; height: 17px; stroke: var(--blue); fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
-    .mostra-card h3 { font-size: 15.5px; margin-bottom: 5px; }
-    .mostra-card p { color: var(--ink-2); font-size: 14px; }
-    .shot-frame {
-      border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden;
-      background: var(--light-bg);
-    }
-    .shots-duo { display: grid; grid-template-columns: 2.4fr 1fr; gap: 14px; align-items: start; }
-
-    /* incluso + preço */
-    .oferta { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .oferta-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center; margin-top: 30px; }
-    .incluso-list { list-style: none; }
-    .incluso-list li {
-      display: flex; gap: 12px; align-items: flex-start;
-      padding: 11px 0; border-bottom: 1px solid var(--border); font-size: 15.5px;
-    }
-    .incluso-list li:last-child { border-bottom: 0; }
-    .incluso-list .ic { margin-top: 4px; }
-    .incluso-list .muted { color: var(--ink-3); font-size: 13.5px; display: block; }
-    .price-card {
-      background: var(--bg); border: 1px solid var(--border);
-      border-radius: 18px; padding: 34px 30px; text-align: center;
-    }
-    .price-card .plabel { color: var(--ink-2); font-size: 14px; margin-bottom: 6px; }
-    .price-card .price { font-size: 52px; font-weight: 780; letter-spacing: -0.03em; line-height: 1; }
-    .price-card .price small { font-size: 22px; font-weight: 650; vertical-align: 14px; margin-right: 3px; }
-    .price-card .ponce { color: var(--ink-3); font-size: 14px; margin: 8px 0 22px; }
-    .price-card .cta-btn { width: 100%; }
-    .price-card .garantia {
-      display: flex; align-items: center; justify-content: center; gap: 8px;
-      color: var(--ink-2); font-size: 13.5px; margin-top: 16px;
-    }
-    .price-card .garantia svg { width: 16px; height: 16px; stroke: var(--good); fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
-
-    /* FAQ */
-    .faq-list { max-width: 720px; margin-top: 34px; }
-    details {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 12px; margin-bottom: 10px; overflow: hidden;
-    }
-    summary {
-      cursor: pointer; padding: 17px 20px; font-weight: 620; font-size: 15.5px;
-      list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 12px;
-    }
-    summary::-webkit-details-marker { display: none; }
-    summary::after { content: "+"; color: var(--ink-3); font-size: 20px; font-weight: 400; flex: none; }
-    details[open] summary::after { content: "–"; }
-    summary:focus-visible { outline: 3px solid var(--blue); outline-offset: -3px; }
-    details .resp { padding: 0 20px 18px; color: var(--ink-2); font-size: 14.5px; }
-
-    /* CTA final */
-    .final { text-align: center; padding-bottom: 96px; }
-    .final h2 { max-width: 640px; margin: 0 auto 14px; }
-    .final .section-sub { margin: 0 auto 30px; }
-
-    footer {
-      border-top: 1px solid var(--border); padding: 26px 0 90px;
-      color: var(--ink-3); font-size: 13.5px;
-    }
-    footer .wrap { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
-
-    /* CTA fixo mobile */
-    .sticky-cta {
-      position: fixed; left: 0; right: 0; bottom: 0; z-index: 50;
-      background: rgba(13, 13, 13, 0.92); backdrop-filter: blur(8px);
-      border-top: 1px solid var(--border);
-      padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
-      display: none;
-    }
-    .sticky-cta a { display: block; text-align: center; }
-
-    @media (max-width: 860px) {
-      section { padding: 56px 0; }
-      .prob-grid, .passos-grid, .mostra-grid { grid-template-columns: 1fr; }
-      .shots-duo { grid-template-columns: 1fr; }
-      .oferta-grid { grid-template-columns: 1fr; gap: 26px; }
-      .sticky-cta { display: block; }
-      .hero { padding-top: 44px; }
-    }
-  </style>
+@media (max-width:1023px){
+  .grid-3{grid-template-columns:1fr}
+  .oferta-grid{grid-template-columns:1fr;gap:26px}
+}
+@media (max-width:640px){
+  section.block{padding:44px 0}
+  .shots-duo{grid-template-columns:1fr}
+}
+</style>
 </head>
 <body>
 
-  <header>
+<header>
+  <div class="wrap">
+    <a class="logo" href="../">Data<span>Lab</span></a>
+    <nav>
+      <a href="../#biblioteca">Biblioteca</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#oferta">Preços</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn-mini" href="https://pay.kiwify.com.br/V7R8a9d">Comprar — R$ 30</a>
+  </div>
+</header>
+
+<main>
+  <!-- ================= HERO ================= -->
+  <section class="hero">
     <div class="wrap">
-      <div>
-        <div class="logo">Data<span class="accent">Lab</span></div>
-        <div class="logo-sub">DashboardKit</div>
+      <span class="badge"><span class="dot"></span>Dashboard Financeiro · pronto para usar</span>
+      <h1>O financeiro do seu negócio<br><em>em uma tela</em></h1>
+      <p>Preencha a planilha modelo e arraste. Fluxo de caixa, resultado, margem e despesas por categoria — montados automaticamente no seu navegador, sem enviar nada.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://pay.kiwify.com.br/V7R8a9d">Quero meu dashboard — R$ 30</a>
+        <a class="btn btn-ghost" href="demo/">Ver demonstração ao vivo</a>
       </div>
-      <div class="spacer"></div>
-      <a class="btn-mini" href="https://pay.kiwify.com.br/V7R8a9d">Comprar agora</a>
+
+      <!-- Painel recriado em HTML/SVG (sem screenshots). Dados: demonstração. -->
+      <div class="browser">
+        <div class="browser-bar" aria-hidden="true">
+          <i></i><i></i><i></i>
+          <div class="browser-url"><span>file:///dashboard-financeiro/index.html</span></div>
+        </div>
+
+        <div class="mock">
+          <div class="mock-top">
+            <span class="title">Dashboard Financeiro</span>
+            <span class="kit">DASHBOARDKIT</span>
+            <span class="sp"></span>
+            <span class="chip">↻ Trocar planilha</span>
+            <span class="chip">◐</span>
+          </div>
+
+          <div class="mock-filters">
+            <div class="segmented" role="group" aria-label="Período">
+              <span aria-pressed="true">Tudo</span><span>12 meses</span><span>6 meses</span><span>3 meses</span>
+            </div>
+            <span class="period">jan/2025 — dez/2025 · 12 meses</span>
+          </div>
+
+          <div class="kpi-grid">
+            <div class="card kpi"><div class="label">Receitas</div><div class="value">R$ 211.700</div><div class="delta up">▲ 17,8% vs período anterior</div></div>
+            <div class="card kpi"><div class="label">Despesas</div><div class="value">R$ 147.100</div><div class="delta down">▲ 9,4% vs período anterior</div></div>
+            <div class="card kpi"><div class="label">Resultado</div><div class="value good">R$ 64.600</div><div class="delta up">▲ 32,3% vs período anterior</div></div>
+            <div class="card kpi"><div class="label">Margem</div><div class="value">30,5%</div><div class="meter"><b style="width:30.5%"></b></div></div>
+          </div>
+
+          <div class="grid-2">
+            <div class="card">
+              <div class="card-head">
+                <h3>Fluxo de caixa mensal</h3><span class="sp"></span>
+                <span class="legend"><i style="background:var(--s1)"></i>Receita</span>
+                <span class="legend"><i style="background:var(--s2)"></i>Despesa</span>
+              </div>
+              <div class="bars">
+                <div class="col"><b class="r" style="height:52%"></b><b class="d" style="height:38%"></b></div>
+                <div class="col"><b class="r" style="height:55%"></b><b class="d" style="height:44%"></b></div>
+                <div class="col"><b class="r" style="height:66%"></b><b class="d" style="height:47%"></b></div>
+                <div class="col"><b class="r" style="height:60%"></b><b class="d" style="height:41%"></b></div>
+                <div class="col"><b class="r" style="height:71%"></b><b class="d" style="height:51%"></b></div>
+                <div class="col"><b class="r" style="height:77%"></b><b class="d" style="height:54%"></b></div>
+                <div class="col"><b class="r" style="height:72%"></b><b class="d" style="height:49%"></b></div>
+                <div class="col"><b class="r" style="height:82%"></b><b class="d" style="height:56%"></b></div>
+                <div class="col"><b class="r" style="height:79%"></b><b class="d" style="height:54%"></b></div>
+                <div class="col"><b class="r" style="height:90%"></b><b class="d" style="height:63%"></b></div>
+                <div class="col"><b class="r" style="height:85%"></b><b class="d" style="height:58%"></b></div>
+                <div class="col"><b class="r" style="height:100%"></b><b class="d" style="height:64%"></b></div>
+              </div>
+              <div class="xaxis"><span>jan</span><span>fev</span><span>mar</span><span>abr</span><span>mai</span><span>jun</span><span>jul</span><span>ago</span><span>set</span><span>out</span><span>nov</span><span>dez</span></div>
+            </div>
+
+            <div class="card">
+              <div class="card-head"><h3>Resultado mensal</h3><span class="sub">receitas − despesas</span></div>
+              <div class="bars">
+                <div class="col"><b class="res" style="height:38%"></b></div>
+                <div class="col"><b class="res" style="height:31%"></b></div>
+                <div class="col"><b class="res" style="height:53%"></b></div>
+                <div class="col"><b class="res" style="height:51%"></b></div>
+                <div class="col"><b class="res" style="height:56%"></b></div>
+                <div class="col"><b class="res" style="height:63%"></b></div>
+                <div class="col"><b class="res" style="height:64%"></b></div>
+                <div class="col"><b class="res" style="height:72%"></b></div>
+                <div class="col"><b class="res" style="height:71%"></b></div>
+                <div class="col"><b class="res" style="height:76%"></b></div>
+                <div class="col"><b class="res" style="height:76%"></b></div>
+                <div class="col"><b class="res" style="height:100%"></b></div>
+              </div>
+              <div class="xaxis"><span>jan</span><span>fev</span><span>mar</span><span>abr</span><span>mai</span><span>jun</span><span>jul</span><span>ago</span><span>set</span><span>out</span><span>nov</span><span>dez</span></div>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="card">
+              <div class="card-head"><h3>Saldo acumulado</h3></div>
+              <svg viewBox="0 0 480 150" style="display:block;width:100%;height:150px" preserveAspectRatio="none" role="img" aria-label="Linha do saldo acumulado subindo de R$ 3.300 em janeiro a R$ 64.600 em dezembro">
+                <line x1="0" y1="20" x2="480" y2="20" stroke="#2c2c2a"></line>
+                <line x1="0" y1="57" x2="480" y2="57" stroke="#2c2c2a"></line>
+                <line x1="0" y1="94" x2="480" y2="94" stroke="#2c2c2a"></line>
+                <line x1="0" y1="131" x2="480" y2="131" stroke="#383835"></line>
+                <polygon points="10,125.6 51.8,120.8 93.6,112.6 135.5,104.8 177.3,96.3 219.1,86.6 260.9,76.9 302.7,65.8 344.5,54.9 386.4,43.5 428.2,31.8 470,16.5 470,131 10,131" fill="#3987e5" opacity=".13"></polygon>
+                <polyline points="10,125.6 51.8,120.8 93.6,112.6 135.5,104.8 177.3,96.3 219.1,86.6 260.9,76.9 302.7,65.8 344.5,54.9 386.4,43.5 428.2,31.8 470,16.5" fill="none" stroke="#3987e5" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"></polyline>
+                <circle cx="470" cy="16.5" r="4" fill="#3987e5"></circle>
+              </svg>
+              <div class="xaxis"><span>jan</span><span>fev</span><span>mar</span><span>abr</span><span>mai</span><span>jun</span><span>jul</span><span>ago</span><span>set</span><span>out</span><span>nov</span><span>dez</span></div>
+            </div>
+
+            <div class="card">
+              <div class="card-head"><h3>Despesas por categoria</h3></div>
+              <div class="donut-layout">
+                <div class="donut" role="img" aria-label="Rosca das despesas por categoria"><span class="hole"><small>TOTAL</small><strong>147,1k</strong></span></div>
+                <ul class="cat-list">
+                  <li><i style="background:var(--s1)"></i><span class="name">Folha</span><span class="val">R$ 50.014</span><span class="pct">34%</span></li>
+                  <li><i style="background:var(--s2)"></i><span class="name">Fornecedores</span><span class="val">R$ 35.304</span><span class="pct">24%</span></li>
+                  <li><i style="background:var(--s4)"></i><span class="name">Marketing</span><span class="val">R$ 22.065</span><span class="pct">15%</span></li>
+                  <li><i style="background:var(--s3)"></i><span class="name">Impostos</span><span class="val">R$ 17.652</span><span class="pct">12%</span></li>
+                  <li><i style="background:var(--s7)"></i><span class="name">Aluguel</span><span class="val">R$ 11.768</span><span class="pct">8%</span></li>
+                  <li><i style="background:var(--other)"></i><span class="name">Outros</span><span class="val">R$ 10.297</span><span class="pct">7%</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </header>
+  </section>
 
-  <main>
-    <div class="hero">
-      <div class="wrap">
-        <span class="badge"><span class="dot"></span>Dashboard Financeiro · pronto para usar</span>
-        <h1>Sua planilha vira um <span class="hl">dashboard financeiro profissional</span> em 60 segundos</h1>
-        <p class="sub">Baixe, abra no navegador e envie sua planilha. Fluxo de caixa, resultado, margem e despesas por categoria — tudo montado automaticamente, sem Power BI e sem mensalidade.</p>
-        <a class="cta-btn" href="https://pay.kiwify.com.br/V7R8a9d">Quero meu dashboard — R$ 30</a>
-        <div class="trust-row">
-          <span><svg class="ic" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Pagamento único</span>
-          <span><svg class="ic" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Funciona 100% offline</span>
-          <span><svg class="ic" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Acesso imediato</span>
+  <!-- ================= PROBLEMA ================= -->
+  <section class="block">
+    <div class="wrap">
+      <div class="block-head">
+        <div class="eyebrow">O problema</div>
+        <h2>Você anota tudo na planilha…<br>mas continua sem enxergar o negócio</h2>
+        <p>Linhas e mais linhas de lançamentos não respondem as perguntas que importam: estou lucrando? Para onde o dinheiro está indo? O caixa está crescendo?</p>
+      </div>
+      <div class="grid-3">
+        <div class="feature">
+          <div class="ic red"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></div>
+          <h3>Planilha crua não mostra tendência</h3>
+          <p>Os números estão lá, mas sem gráficos você não vê sazonalidade, evolução do caixa nem onde a despesa estourou.</p>
         </div>
-        <div class="hero-shot">
-          <img src="img/hero-dark.png" alt="Dashboard Financeiro em modo escuro mostrando indicadores de receitas, despesas, resultado e margem, além de gráficos de fluxo de caixa e despesas por categoria" width="1440" height="1050" fetchpriority="high">
+        <div class="feature">
+          <div class="ic red"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></div>
+          <h3>Power BI é complexo demais</h3>
+          <p>Curva de aprendizado longa, licença mensal e horas de configuração — exagero para quem só quer ver os números do próprio negócio.</p>
+        </div>
+        <div class="feature">
+          <div class="ic red"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></div>
+          <h3>Contratar BI custa caro</h3>
+          <p>Consultoria e ferramentas de dashboard cobram por mês, por usuário — e o seu financeiro cabe numa planilha.</p>
         </div>
       </div>
     </div>
+  </section>
 
-    <section class="problema">
-      <div class="wrap">
-        <div class="section-tag">O problema</div>
-        <h2>Você anota tudo na planilha… mas continua sem enxergar o negócio</h2>
-        <p class="section-sub">Linhas e mais linhas de lançamentos não respondem as perguntas que importam: estou lucrando? Para onde o dinheiro está indo? O caixa está crescendo?</p>
-        <div class="prob-grid">
-          <div class="prob-card">
-            <div class="x"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></div>
-            <h3>Planilha crua não mostra tendência</h3>
-            <p>Os números estão lá, mas sem gráficos você não vê sazonalidade, evolução do caixa nem onde a despesa estourou.</p>
-          </div>
-          <div class="prob-card">
-            <div class="x"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></div>
-            <h3>Power BI é complexo demais</h3>
-            <p>Curva de aprendizado longa, licença mensal e horas de configuração — exagero para quem só quer ver os números do próprio negócio.</p>
-          </div>
-          <div class="prob-card">
-            <div class="x"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></div>
-            <h3>Contratar BI custa caro</h3>
-            <p>Consultoria e ferramentas de dashboard cobram por mês, por usuário — e o seu financeiro cabe numa planilha.</p>
-          </div>
+  <!-- ================= COMO FUNCIONA ================= -->
+  <section class="block band" id="como-funciona">
+    <div class="wrap">
+      <div class="block-head">
+        <div class="eyebrow">Como funciona</div>
+        <h2>Três passos. Sem instalação,<br>sem cadastro, sem programação.</h2>
+      </div>
+      <div class="grid-3">
+        <div class="feature passo">
+          <div class="num">1</div>
+          <h3>Baixe e descompacte</h3>
+          <p>Você recebe um ZIP com o dashboard, a planilha modelo (template.xlsx) e o guia de uso.</p>
+        </div>
+        <div class="feature passo">
+          <div class="num">2</div>
+          <h3>Abra no navegador</h3>
+          <p>Dois cliques no index.html e o dashboard abre no Chrome, Safari ou Edge — em qualquer computador.</p>
+        </div>
+        <div class="feature passo">
+          <div class="num">3</div>
+          <h3>Envie sua planilha</h3>
+          <p>Preencha o modelo com seus lançamentos (Data, Tipo, Categoria, Valor) e arraste para o dashboard. Pronto.</p>
         </div>
       </div>
-    </section>
+      <p class="passos-obs">ACEITA .XLSX · .XLS · .CSV — DATAS E VALORES NO FORMATO BRASILEIRO</p>
+    </div>
+  </section>
 
-    <section class="passos">
-      <div class="wrap">
-        <div class="section-tag">Como funciona</div>
-        <h2>Três passos. Sem instalação, sem cadastro, sem programação.</h2>
-        <div class="passos-grid">
-          <div class="passo">
-            <div class="num">1</div>
-            <h3>Baixe e descompacte</h3>
-            <p>Você recebe um ZIP com o dashboard, a planilha modelo (template.xlsx) e o guia de uso.</p>
-          </div>
-          <div class="passo">
-            <div class="num">2</div>
-            <h3>Abra no navegador</h3>
-            <p>Dois cliques no index.html e o dashboard abre no Chrome, Safari ou Edge — em qualquer computador.</p>
-          </div>
-          <div class="passo">
-            <div class="num">3</div>
-            <h3>Envie sua planilha</h3>
-            <p>Preencha o modelo com seus lançamentos (Data, Tipo, Categoria, Valor) e arraste para o dashboard. Pronto.</p>
-          </div>
-        </div>
-        <p class="obs">Aceita arquivos .xlsx, .xls e .csv — datas e valores no formato brasileiro.</p>
+  <!-- ================= O QUE VOCÊ VÊ ================= -->
+  <section class="block">
+    <div class="wrap">
+      <div class="block-head">
+        <div class="eyebrow">O que você vê</div>
+        <h2>Todos os números que importam,<br>em uma tela</h2>
       </div>
-    </section>
-
-    <section>
-      <div class="wrap">
-        <div class="section-tag">O que você vê</div>
-        <h2>Todos os números que importam, em uma tela</h2>
-        <div class="mostra-grid">
-          <div class="mostra-card">
-            <div class="ic-box"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/></svg></div>
-            <h3>Indicadores do período</h3>
-            <p>Receitas, despesas, resultado e margem — com a variação contra o mês anterior.</p>
-          </div>
-          <div class="mostra-card">
-            <div class="ic-box"><svg viewBox="0 0 24 24"><rect x="3" y="10" width="4" height="10"/><rect x="10" y="4" width="4" height="16"/><rect x="17" y="8" width="4" height="12"/></svg></div>
-            <h3>Fluxo de caixa mensal</h3>
-            <p>Receitas contra despesas, mês a mês, para ver a sazonalidade do seu negócio.</p>
-          </div>
-          <div class="mostra-card">
-            <div class="ic-box"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></div>
-            <h3>Saldo acumulado</h3>
-            <p>A linha do caixa ao longo do tempo — crescendo ou caindo, você vê na hora.</p>
-          </div>
-          <div class="mostra-card">
-            <div class="ic-box"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 4"/></svg></div>
-            <h3>Despesas por categoria</h3>
-            <p>Para onde o dinheiro vai: as maiores categorias de despesa com valores e percentuais.</p>
-          </div>
-          <div class="mostra-card">
-            <div class="ic-box"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 4v16"/></svg></div>
-            <h3>Resumo mensal completo</h3>
-            <p>Tabela com receitas, despesas, resultado, margem e saldo — mês a mês.</p>
-          </div>
-          <div class="mostra-card">
-            <div class="ic-box"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 109 9"/><path d="M12 3v9h9"/></svg></div>
-            <h3>Filtros de período</h3>
-            <p>Tudo, 12, 6 ou 3 meses — todos os gráficos e indicadores recalculam juntos.</p>
-          </div>
+      <div class="grid-3">
+        <div class="feature">
+          <div class="ic blue"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/></svg></div>
+          <h3>Indicadores do período</h3>
+          <p>Receitas, despesas, resultado e margem — com a variação contra o mês anterior.</p>
         </div>
-        <div class="shots-duo">
+        <div class="feature">
+          <div class="ic blue"><svg viewBox="0 0 24 24"><rect x="3" y="10" width="4" height="10"/><rect x="10" y="4" width="4" height="16"/><rect x="17" y="8" width="4" height="12"/></svg></div>
+          <h3>Fluxo de caixa mensal</h3>
+          <p>Receitas contra despesas, mês a mês, para ver a sazonalidade do seu negócio.</p>
+        </div>
+        <div class="feature">
+          <div class="ic blue"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></div>
+          <h3>Saldo acumulado</h3>
+          <p>A linha do caixa ao longo do tempo — crescendo ou caindo, você vê na hora.</p>
+        </div>
+        <div class="feature">
+          <div class="ic blue"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 4"/></svg></div>
+          <h3>Despesas por categoria</h3>
+          <p>Para onde o dinheiro vai: as maiores categorias de despesa com valores e percentuais.</p>
+        </div>
+        <div class="feature">
+          <div class="ic blue"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 4v16"/></svg></div>
+          <h3>Resumo mensal completo</h3>
+          <p>Tabela com receitas, despesas, resultado, margem e saldo — mês a mês.</p>
+        </div>
+        <div class="feature">
+          <div class="ic blue"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 109 9"/><path d="M12 3v9h9"/></svg></div>
+          <h3>Filtros de período</h3>
+          <p>Tudo, 12, 6 ou 3 meses — todos os gráficos e indicadores recalculam juntos.</p>
+        </div>
+      </div>
+      <div class="shots-duo">
+        <div>
           <div class="shot-frame">
             <img src="img/full-light.png" alt="Dashboard Financeiro completo em modo claro, com gráficos, indicadores e tabela de resumo mensal" width="1440" height="2350" loading="lazy">
           </div>
+          <p class="shot-cap">TEMA CLARO — O MESMO PAINEL, UM CLIQUE</p>
+        </div>
+        <div>
           <div class="shot-frame">
             <img src="img/mobile-dark.png" alt="Dashboard Financeiro aberto em um celular, mostrando o layout responsivo" width="390" height="1500" loading="lazy">
           </div>
+          <p class="shot-cap">RESPONSIVO — CELULAR E TABLET</p>
         </div>
       </div>
-    </section>
-
-    <section class="oferta" id="oferta">
-      <div class="wrap">
-        <div class="section-tag">O que está incluso</div>
-        <h2>Tudo o que você recebe hoje</h2>
-        <div class="oferta-grid">
-          <ul class="incluso-list">
-            <li><svg class="ic" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span><strong>Dashboard Financeiro completo</strong><span class="muted">arquivo HTML que abre em qualquer navegador, tema claro e escuro, exportação de gráficos em PNG</span></span></li>
-            <li><svg class="ic" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span><strong>Planilha modelo preenchida (template.xlsx)</strong><span class="muted">com 12 meses de dados de exemplo — é só substituir pelos seus lançamentos</span></span></li>
-            <li><svg class="ic" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span><strong>Guia de uso passo a passo</strong><span class="muted">LEIA-ME com instruções simples, sem jargão técnico</span></span></li>
-            <li><svg class="ic" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span><strong>Acesso vitalício na área de membros</strong><span class="muted">baixe quando quiser e receba as atualizações do dashboard sem pagar de novo</span></span></li>
-            <li><svg class="ic" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span><strong>Privacidade total</strong><span class="muted">funciona offline — seus dados financeiros nunca saem do seu computador</span></span></li>
-          </ul>
-          <div class="price-card">
-            <div class="plabel">Preço de lançamento</div>
-            <div class="price"><small>R$</small>30</div>
-            <div class="ponce">pagamento único · sem mensalidade</div>
-            <a class="cta-btn" href="https://pay.kiwify.com.br/V7R8a9d">Comprar agora</a>
-            <div class="garantia"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Garantia de 7 dias — devolução integral</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="wrap">
-        <div class="section-tag">Perguntas frequentes</div>
-        <h2>Ficou alguma dúvida?</h2>
-        <div class="faq-list">
-          <details>
-            <summary>Preciso de internet para usar?</summary>
-            <p class="resp">Não. Depois de baixar o ZIP, tudo funciona offline no seu computador. Seus dados nunca são enviados para nenhum servidor.</p>
-          </details>
-          <details>
-            <summary>Funciona no meu computador?</summary>
-            <p class="resp">Sim — funciona em Windows, Mac e Linux. Basta ter um navegador (Chrome, Edge, Safari ou Firefox). Não precisa instalar nada.</p>
-          </details>
-          <details>
-            <summary>Preciso saber programar ou dominar Excel?</summary>
-            <p class="resp">Não. Você só preenche uma planilha simples com 4 colunas (Data, Tipo, Categoria, Valor) — o modelo já vem pronto com exemplos — e arrasta para o dashboard.</p>
-          </details>
-          <details>
-            <summary>Meus dados financeiros ficam seguros?</summary>
-            <p class="resp">Sim. O dashboard roda inteiramente no seu navegador, sem servidor e sem cadastro. Nenhum dado sai da sua máquina.</p>
-          </details>
-          <details>
-            <summary>Posso ver no celular?</summary>
-            <p class="resp">Sim, o layout é responsivo e se adapta a celular e tablet. Para editar a planilha, o computador é mais confortável.</p>
-          </details>
-          <details>
-            <summary>Como recebo o produto?</summary>
-            <p class="resp">O pagamento é processado pela Kiwify. Você recebe o acesso à área de membros por e-mail na hora e baixa o ZIP imediatamente — incluindo futuras atualizações.</p>
-          </details>
-          <details>
-            <summary>E se não for para mim?</summary>
-            <p class="resp">Você tem 7 dias de garantia incondicional. Se não gostar, devolvemos 100% do valor.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="final">
-      <div class="wrap">
-        <h2>Pare de olhar para linhas de planilha. Veja o seu negócio.</h2>
-        <p class="section-sub">Em menos de um minuto a partir de agora, seus números podem estar organizados em um dashboard profissional.</p>
-        <a class="cta-btn" href="https://pay.kiwify.com.br/V7R8a9d">Quero meu dashboard — R$ 30</a>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="wrap">
-      <span>© 2026 DataLab · DashboardKit</span>
-      <span>·</span>
-      <span>Pagamento seguro processado pela Kiwify</span>
     </div>
-  </footer>
+  </section>
 
-  <div class="sticky-cta">
-    <a class="cta-btn" href="https://pay.kiwify.com.br/V7R8a9d">Comprar por R$ 30 — acesso imediato</a>
+  <!-- ================= OFERTA ================= -->
+  <section class="block band" id="oferta">
+    <div class="wrap">
+      <div class="block-head">
+        <div class="eyebrow">O que está incluso</div>
+        <h2>Tudo o que você recebe hoje</h2>
+      </div>
+      <div class="oferta-grid">
+        <ul class="incluso-list">
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span><strong>Dashboard Financeiro completo</strong><span class="muted">arquivo HTML que abre em qualquer navegador, tema claro e escuro, exportação de gráficos em PNG</span></span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span><strong>Planilha modelo preenchida (template.xlsx)</strong><span class="muted">com 12 meses de dados de exemplo — é só substituir pelos seus lançamentos</span></span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span><strong>Guia de uso passo a passo</strong><span class="muted">LEIA-ME com instruções simples, sem jargão técnico</span></span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span><strong>Acesso vitalício na área de membros</strong><span class="muted">baixe quando quiser e receba as atualizações do dashboard sem pagar de novo</span></span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span><strong>Privacidade total</strong><span class="muted">funciona offline — seus dados financeiros nunca saem do seu computador</span></span></li>
+        </ul>
+        <div class="price-card">
+          <div class="plabel">Preço de lançamento</div>
+          <div class="price"><small>R$</small>30</div>
+          <div class="ponce">PAGAMENTO ÚNICO · SEM MENSALIDADE</div>
+          <a class="btn btn-primary" href="https://pay.kiwify.com.br/V7R8a9d">Comprar agora</a>
+          <div class="garantia"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Garantia de 7 dias — devolução integral</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section class="block" id="faq">
+    <div class="wrap">
+      <div class="block-head">
+        <div class="eyebrow">Perguntas frequentes</div>
+        <h2>Ficou alguma dúvida?</h2>
+      </div>
+      <div class="faq-list">
+        <details>
+          <summary>Preciso de internet para usar?</summary>
+          <p class="resp">Não. Depois de baixar o ZIP, tudo funciona offline no seu computador. Seus dados nunca são enviados para nenhum servidor.</p>
+        </details>
+        <details>
+          <summary>Funciona no meu computador?</summary>
+          <p class="resp">Sim — funciona em Windows, Mac e Linux. Basta ter um navegador (Chrome, Edge, Safari ou Firefox). Não precisa instalar nada.</p>
+        </details>
+        <details>
+          <summary>Preciso saber programar ou dominar Excel?</summary>
+          <p class="resp">Não. Você só preenche uma planilha simples com 4 colunas (Data, Tipo, Categoria, Valor) — o modelo já vem pronto com exemplos — e arrasta para o dashboard.</p>
+        </details>
+        <details>
+          <summary>Meus dados financeiros ficam seguros?</summary>
+          <p class="resp">Sim. O dashboard roda inteiramente no seu navegador, sem servidor e sem cadastro. Nenhum dado sai da sua máquina.</p>
+        </details>
+        <details>
+          <summary>Posso ver no celular?</summary>
+          <p class="resp">Sim, o layout é responsivo e se adapta a celular e tablet. Para editar a planilha, o computador é mais confortável.</p>
+        </details>
+        <details>
+          <summary>Como recebo o produto?</summary>
+          <p class="resp">O pagamento é processado pela Kiwify. Você recebe o acesso à área de membros por e-mail na hora e baixa o ZIP imediatamente — incluindo futuras atualizações.</p>
+        </details>
+        <details>
+          <summary>E se não for para mim?</summary>
+          <p class="resp">Você tem 7 dias de garantia incondicional. Se não gostar, devolvemos 100% do valor.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CTA FINAL ================= -->
+  <section class="final">
+    <div class="wrap">
+      <h2>Pare de olhar linhas.<br>Veja o negócio.</h2>
+      <p>Em menos de um minuto a partir de agora, seus números podem estar organizados em um dashboard profissional.</p>
+      <a class="btn btn-primary" href="https://pay.kiwify.com.br/V7R8a9d">Quero meu dashboard — R$ 30</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 DataLab · DashboardKit</span><span>·</span><span>Pagamento seguro processado pela Kiwify</span>
   </div>
+</footer>
+
+<div class="sticky-cta">
+  <a class="btn btn-primary" href="https://pay.kiwify.com.br/V7R8a9d">Comprar por R$ 30 — acesso imediato</a>
+</div>
 
 </body>
 </html>

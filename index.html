@@ -1,52 +1,242 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DataLab — Dashboards prontos para o seu negócio</title>
-  <meta name="description" content="Dashboards HTML profissionais que funcionam com a sua planilha. Sem Power BI, sem mensalidade, 100% offline.">
-  <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;📊&lt;/text&gt;&lt;/svg&gt;">
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-      background: #0d0d0d; color: #fff; min-height: 100dvh;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      padding: 32px 20px; text-align: center; line-height: 1.6;
-    }
-    .logo { font-size: 34px; font-weight: 750; letter-spacing: -0.02em; }
-    .logo span { color: #3987e5; }
-    .tag { color: #c3c2b7; margin: 10px 0 40px; font-size: 17px; max-width: 460px; }
-    .cards { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
-    a.card {
-      display: block; width: 300px; text-align: left; text-decoration: none; color: inherit;
-      background: #1a1a19; border: 1px solid rgba(255,255,255,0.10);
-      border-radius: 14px; padding: 22px; transition: border-color 0.2s, transform 0.15s;
-    }
-    a.card:hover { border-color: #3987e5; transform: translateY(-2px); }
-    a.card:focus-visible { outline: 3px solid #3987e5; outline-offset: 3px; }
-    .card h2 { font-size: 18px; margin-bottom: 6px; }
-    .card p { color: #c3c2b7; font-size: 14px; }
-    .card .go { color: #3987e5; font-size: 14px; font-weight: 600; margin-top: 14px; display: inline-block; }
-    .soon { opacity: 0.55; pointer-events: none; }
-    footer { margin-top: 56px; color: #898781; font-size: 13px; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DataLab — Dashboards prontos para o seu negócio</title>
+<meta name="description" content="Dashboards HTML profissionais que funcionam com a sua planilha. Sem Power BI, sem mensalidade, 100% offline.">
+<meta property="og:title" content="DataLab — Dashboards prontos para o seu negócio">
+<meta property="og:description" content="Do Excel ao dashboard em 60 segundos. Pagamento único, sem mensalidade, 100% offline.">
+<meta property="og:image" content="https://luizaumsb.github.io/datalab-pages/financeiro/img/hero-dark.png">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Archivo:wght@800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;📊&lt;/text&gt;&lt;/svg&gt;">
 </head>
 <body>
-  <div class="logo">Data<span>Lab</span></div>
-  <p class="tag">Dashboards profissionais que funcionam com a sua planilha. Sem Power BI, sem mensalidade, 100% offline.</p>
-  <div class="cards">
-    <a class="card" href="financeiro/">
-      <h2>Dashboard Financeiro</h2>
-      <p>Fluxo de caixa, resultado, margem e despesas por categoria direto da sua planilha.</p>
-      <span class="go">Conhecer →</span>
-    </a>
-    <div class="card soon" aria-disabled="true">
-      <h2>Dashboard Comercial</h2>
-      <p>Vendas, ticket médio, metas e clientes em um painel pronto.</p>
-      <span class="go">Em breve</span>
-    </div>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="./">Data<span>Lab</span></a>
+    <nav>
+      <a href="#biblioteca">Biblioteca</a>
+      <a href="financeiro/#como-funciona">Como funciona</a>
+      <a href="#precos">Preços</a>
+      <a href="financeiro/#faq">FAQ</a>
+    </nav>
+    <a class="btn-mini" href="https://pay.kiwify.com.br/V7R8a9d">Comprar — R$ 30</a>
   </div>
-  <footer>© 2026 DataLab · DashboardKit</footer>
+</header>
+
+<main>
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="wrap">
+      <span class="badge"><span class="dot"></span>Financeiro disponível · Comercial em breve</span>
+      <h1>Do Excel ao dashboard<br>em <em>60 segundos</em></h1>
+      <p>Preencha a planilha modelo e arraste. O painel calcula os indicadores, monta os gráficos e a tabela de resumo — no seu navegador, sem enviar nada.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://pay.kiwify.com.br/V7R8a9d">Quero meu dashboard</a>
+        <a class="btn btn-ghost" href="financeiro/demo/">Ver com dados de exemplo</a>
+      </div>
+
+      <!-- Painel recriado em HTML/SVG (sem screenshots). Dados: demonstração. -->
+      <div class="browser">
+        <div class="browser-bar" aria-hidden="true">
+          <i></i><i></i><i></i>
+          <div class="browser-url"><span>file:///dashboard-financeiro/index.html</span></div>
+        </div>
+
+        <div class="mock">
+          <div class="mock-top">
+            <span class="title">Dashboard Financeiro</span>
+            <span class="kit">DASHBOARDKIT</span>
+            <span class="sp"></span>
+            <span class="chip">↻ Trocar planilha</span>
+            <span class="chip">◐</span>
+          </div>
+
+          <div class="mock-filters">
+            <div class="segmented" role="group" aria-label="Período">
+              <span aria-pressed="true">Tudo</span><span>12 meses</span><span>6 meses</span><span>3 meses</span>
+            </div>
+            <span class="period">jan/2025 — dez/2025 · 12 meses</span>
+          </div>
+
+          <div class="kpi-grid">
+            <div class="card kpi"><div class="label">Receitas</div><div class="value">R$ 211.700</div><div class="delta up">▲ 17,8% vs período anterior</div></div>
+            <div class="card kpi"><div class="label">Despesas</div><div class="value">R$ 147.100</div><div class="delta down">▲ 9,4% vs período anterior</div></div>
+            <div class="card kpi"><div class="label">Resultado</div><div class="value good">R$ 64.600</div><div class="delta up">▲ 32,3% vs período anterior</div></div>
+            <div class="card kpi"><div class="label">Margem</div><div class="value">30,5%</div><div class="meter"><b style="width:30.5%"></b></div></div>
+          </div>
+
+          <div class="grid-2">
+            <div class="card">
+              <div class="card-head">
+                <h3>Fluxo de caixa mensal</h3><span class="sp"></span>
+                <span class="legend"><i style="background:var(--s1)"></i>Receita</span>
+                <span class="legend"><i style="background:var(--s2)"></i>Despesa</span>
+              </div>
+              <div class="bars">
+                <div class="col"><b class="r" style="height:52%"></b><b class="d" style="height:38%"></b></div>
+                <div class="col"><b class="r" style="height:55%"></b><b class="d" style="height:44%"></b></div>
+                <div class="col"><b class="r" style="height:66%"></b><b class="d" style="height:47%"></b></div>
+                <div class="col"><b class="r" style="height:60%"></b><b class="d" style="height:41%"></b></div>
+                <div class="col"><b class="r" style="height:71%"></b><b class="d" style="height:51%"></b></div>
+                <div class="col"><b class="r" style="height:77%"></b><b class="d" style="height:54%"></b></div>
+                <div class="col"><b class="r" style="height:72%"></b><b class="d" style="height:49%"></b></div>
+                <div class="col"><b class="r" style="height:82%"></b><b class="d" style="height:56%"></b></div>
+                <div class="col"><b class="r" style="height:79%"></b><b class="d" style="height:54%"></b></div>
+                <div class="col"><b class="r" style="height:90%"></b><b class="d" style="height:63%"></b></div>
+                <div class="col"><b class="r" style="height:85%"></b><b class="d" style="height:58%"></b></div>
+                <div class="col"><b class="r" style="height:100%"></b><b class="d" style="height:64%"></b></div>
+              </div>
+              <div class="xaxis"><span>jan</span><span>fev</span><span>mar</span><span>abr</span><span>mai</span><span>jun</span><span>jul</span><span>ago</span><span>set</span><span>out</span><span>nov</span><span>dez</span></div>
+            </div>
+
+            <div class="card">
+              <div class="card-head"><h3>Resultado mensal</h3><span class="sub">receitas − despesas</span></div>
+              <div class="bars">
+                <div class="col"><b class="res" style="height:38%"></b></div>
+                <div class="col"><b class="res" style="height:31%"></b></div>
+                <div class="col"><b class="res" style="height:53%"></b></div>
+                <div class="col"><b class="res" style="height:51%"></b></div>
+                <div class="col"><b class="res" style="height:56%"></b></div>
+                <div class="col"><b class="res" style="height:63%"></b></div>
+                <div class="col"><b class="res" style="height:64%"></b></div>
+                <div class="col"><b class="res" style="height:72%"></b></div>
+                <div class="col"><b class="res" style="height:71%"></b></div>
+                <div class="col"><b class="res" style="height:76%"></b></div>
+                <div class="col"><b class="res" style="height:76%"></b></div>
+                <div class="col"><b class="res" style="height:100%"></b></div>
+              </div>
+              <div class="xaxis"><span>jan</span><span>fev</span><span>mar</span><span>abr</span><span>mai</span><span>jun</span><span>jul</span><span>ago</span><span>set</span><span>out</span><span>nov</span><span>dez</span></div>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="card">
+              <div class="card-head"><h3>Saldo acumulado</h3></div>
+              <svg viewBox="0 0 480 150" style="display:block;width:100%;height:150px" preserveAspectRatio="none" role="img" aria-label="Linha do saldo acumulado subindo de R$ 3.300 em janeiro a R$ 64.600 em dezembro">
+                <line x1="0" y1="20" x2="480" y2="20" stroke="#2c2c2a"></line>
+                <line x1="0" y1="57" x2="480" y2="57" stroke="#2c2c2a"></line>
+                <line x1="0" y1="94" x2="480" y2="94" stroke="#2c2c2a"></line>
+                <line x1="0" y1="131" x2="480" y2="131" stroke="#383835"></line>
+                <polygon points="10,125.6 51.8,120.8 93.6,112.6 135.5,104.8 177.3,96.3 219.1,86.6 260.9,76.9 302.7,65.8 344.5,54.9 386.4,43.5 428.2,31.8 470,16.5 470,131 10,131" fill="#3987e5" opacity=".13"></polygon>
+                <polyline points="10,125.6 51.8,120.8 93.6,112.6 135.5,104.8 177.3,96.3 219.1,86.6 260.9,76.9 302.7,65.8 344.5,54.9 386.4,43.5 428.2,31.8 470,16.5" fill="none" stroke="#3987e5" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"></polyline>
+                <circle cx="470" cy="16.5" r="4" fill="#3987e5"></circle>
+              </svg>
+              <div class="xaxis"><span>jan</span><span>fev</span><span>mar</span><span>abr</span><span>mai</span><span>jun</span><span>jul</span><span>ago</span><span>set</span><span>out</span><span>nov</span><span>dez</span></div>
+            </div>
+
+            <div class="card">
+              <div class="card-head"><h3>Despesas por categoria</h3></div>
+              <div class="donut-layout">
+                <div class="donut" role="img" aria-label="Rosca das despesas por categoria"><span class="hole"><small>TOTAL</small><strong>147,1k</strong></span></div>
+                <ul class="cat-list">
+                  <li><i style="background:var(--s1)"></i><span class="name">Folha</span><span class="val">R$ 50.014</span><span class="pct">34%</span></li>
+                  <li><i style="background:var(--s2)"></i><span class="name">Fornecedores</span><span class="val">R$ 35.304</span><span class="pct">24%</span></li>
+                  <li><i style="background:var(--s4)"></i><span class="name">Marketing</span><span class="val">R$ 22.065</span><span class="pct">15%</span></li>
+                  <li><i style="background:var(--s3)"></i><span class="name">Impostos</span><span class="val">R$ 17.652</span><span class="pct">12%</span></li>
+                  <li><i style="background:var(--s7)"></i><span class="name">Aluguel</span><span class="val">R$ 11.768</span><span class="pct">8%</span></li>
+                  <li><i style="background:var(--other)"></i><span class="name">Outros</span><span class="val">R$ 10.297</span><span class="pct">7%</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head"><h3>Resumo mensal</h3></div>
+            <div class="table-scroll">
+              <table class="summary">
+                <thead><tr><th>Mês</th><th>Receitas</th><th>Despesas</th><th>Resultado</th><th>Margem</th><th>Saldo acumulado</th></tr></thead>
+                <tbody>
+                  <tr><td>out/2025</td><td>21.400</td><td>14.900</td><td class="good">6.500</td><td>30,4%</td><td>49.500</td></tr>
+                  <tr><td>nov/2025</td><td>20.200</td><td>13.700</td><td class="good">6.500</td><td>32,2%</td><td>56.000</td></tr>
+                  <tr><td>dez/2025</td><td>23.800</td><td>15.200</td><td class="good">8.600</td><td>36,1%</td><td>64.600</td></tr>
+                </tbody>
+                <tfoot><tr><td>Total</td><td>211.700</td><td>147.100</td><td>64.600</td><td>30,5%</td><td>64.600</td></tr></tfoot>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= BIBLIOTECA ================= -->
+  <section class="library" id="biblioteca">
+    <div class="wrap">
+      <div class="library-head">
+        <div>
+          <div class="eyebrow">Biblioteca DashboardKit</div>
+          <h2>Escolha a área.<br>O painel já vem pronto.</h2>
+        </div>
+        <span class="note">novos dashboards todo mês</span>
+      </div>
+      <div class="cards">
+        <a class="dash-card available" href="financeiro/">
+          <div class="top">
+            <span class="spark"><b style="height:9px"></b><b style="height:16px"></b><b style="height:12px"></b><b style="height:20px"></b></span>
+            <span class="status">DISPONÍVEL</span>
+          </div>
+          <h3>Financeiro</h3>
+          <p>Fluxo de caixa, resultado, margem, despesas por categoria.</p>
+          <div class="foot"><span class="price">R$ 30</span><span class="go">Conhecer →</span></div>
+        </a>
+        <div class="dash-card">
+          <div class="top">
+            <svg viewBox="0 0 24 24" stroke="#199e70"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg>
+            <span class="status">EM BREVE</span>
+          </div>
+          <h3>Comercial</h3>
+          <p>Vendas, ticket médio, metas, ranking de clientes.</p>
+          <div class="foot"><span>Avise-me</span></div>
+        </div>
+        <div class="dash-card">
+          <div class="top">
+            <svg viewBox="0 0 24 24" stroke="#d95926"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 4"/></svg>
+            <span class="status">EM BREVE</span>
+          </div>
+          <h3>Marketing</h3>
+          <p>Leads, conversão, CAC e ROAS por canal.</p>
+          <div class="foot"><span>Avise-me</span></div>
+        </div>
+        <div class="dash-card">
+          <div class="top">
+            <svg viewBox="0 0 24 24" stroke="#c98500"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 4v16"/></svg>
+            <span class="status">EM BREVE</span>
+          </div>
+          <h3>Estoque</h3>
+          <p>Entradas, saídas, giro, ruptura e curva ABC.</p>
+          <div class="foot"><span>Avise-me</span></div>
+        </div>
+      </div>
+      <p class="roadmap">RH · Restaurante · Clínica · Academia · CRM · E-commerce no roadmap.</p>
+    </div>
+  </section>
+
+  <!-- ================= CTA FINAL ================= -->
+  <section class="final" id="precos">
+    <div class="wrap">
+      <h2>Pare de olhar linhas.<br>Veja o negócio.</h2>
+      <p>Pagamento único de R$ 30, garantia de 7 dias e atualizações incluídas.</p>
+      <a class="btn btn-primary" href="https://pay.kiwify.com.br/V7R8a9d">Comprar agora</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 DataLab · DashboardKit</span><span>·</span><span>Pagamento seguro processado pela Kiwify</span>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <a class="btn btn-primary" href="https://pay.kiwify.com.br/V7R8a9d">Comprar por R$ 30 — acesso imediato</a>
+</div>
+
 </body>
 </html>

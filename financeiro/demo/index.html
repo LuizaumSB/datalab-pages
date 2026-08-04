@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demonstração — Dashboard Financeiro | DataLab</title>
+  <meta name="description" content="Demonstração ao vivo do Dashboard Financeiro com dados fictícios. O produto completo aceita a sua planilha.">
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;📊&lt;/text&gt;&lt;/svg&gt;">
+  <script>
+    /* a demo sempre abre com os dados de exemplo carregados */
+    try {
+      if (new URLSearchParams(location.search).get("demo") !== "1") {
+        history.replaceState(null, "", location.pathname + "?demo=1");
+      }
+    } catch (e) { /* fallback no fim da página */ }
+  </script>
+  <style>
+    /* ---- ajustes da demonstração ---- */
+    .demo-bar {
+      position: sticky; top: 0; z-index: 60;
+      display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+      background: #eb6834; color: #fff;
+      padding: 10px 20px; font-size: 13.5px; font-weight: 500;
+    }
+    .demo-bar .txt strong { font-weight: 700; }
+    .demo-bar .sp { flex: 1; }
+    .demo-bar a {
+      color: #fff; text-decoration: none; font-weight: 700;
+      border: 1.5px solid rgba(255, 255, 255, 0.6); border-radius: 8px; padding: 7px 14px;
+      white-space: nowrap;
+    }
+    .demo-bar a:hover { background: rgba(255, 255, 255, 0.14); }
+    .demo-bar a.solid { background: #fff; color: #eb6834; border-color: #fff; }
+    /* upload e limpeza não existem na demo */
+    #btn-upload, #btn-clear { display: none !important; }
+  </style>
+</head>
+<body>
+  <div class="demo-bar">
+    <span class="txt"><strong>Demonstração</strong> com dados fictícios — o produto completo aceita a sua planilha.</span>
+    <span class="sp"></span>
+    <a href="../">← Voltar</a>
+    <a class="solid" href="https://pay.kiwify.com.br/V7R8a9d">Comprar — R$ 30</a>
+  </div>
+
+  <div class="container">
+
+    <header class="topbar">
+      <div class="brand">
+        <h1>Dashboard Financeiro</h1>
+        <span class="kit">DashboardKit</span>
+      </div>
+      <div class="spacer"></div>
+      <button id="btn-upload" class="btn hidden">↻&nbsp;Trocar planilha</button>
+      <button id="btn-clear" class="btn ghost hidden">Limpar dados</button>
+      <button id="btn-theme" class="btn icon-btn" title="Alternar tema claro/escuro" aria-label="Alternar tema claro/escuro">◐</button>
+      <input type="file" id="file-input" accept=".xlsx,.xls,.csv" hidden>
+    </header>
+
+    <div id="banner" class="banner hidden" role="alert"></div>
+
+    <!-- Estado vazio (nunca aparece na demo: os dados de exemplo carregam sozinhos) -->
+    <section id="empty-state" class="empty-state hidden" aria-hidden="true">
+      <div id="dropzone" class="dropzone" role="button" tabindex="-1">
+        <div class="dz-icon">📊</div>
+        <h2>Arraste sua planilha aqui</h2>
+        <p>ou clique para escolher o arquivo</p>
+        <div class="formats">Disponível no produto completo</div>
+      </div>
+      <div class="empty-actions">
+        <button id="btn-sample" class="btn primary">Ver com dados de exemplo</button>
+      </div>
+    </section>
+
+    <!-- Dashboard -->
+    <main id="dashboard" class="hidden">
+
+      <div class="filter-row">
+        <div class="segmented" role="group" aria-label="Período">
+          <button data-meses="" aria-pressed="true">Tudo</button>
+          <button data-meses="12" aria-pressed="false">12 meses</button>
+          <button data-meses="6" aria-pressed="false">6 meses</button>
+          <button data-meses="3" aria-pressed="false">3 meses</button>
+        </div>
+        <span id="period-label" class="period-label"></span>
+      </div>
+
+      <section class="kpi-grid" aria-label="Indicadores">
+        <div class="kpi">
+          <div class="label">Receitas</div>
+          <div class="value" id="kpi-receita">—</div>
+          <div class="delta" id="delta-receita"></div>
+        </div>
+        <div class="kpi">
+          <div class="label">Despesas</div>
+          <div class="value" id="kpi-despesa">—</div>
+          <div class="delta" id="delta-despesa"></div>
+        </div>
+        <div class="kpi">
+          <div class="label">Resultado</div>
+          <div class="value" id="kpi-resultado">—</div>
+          <div class="delta" id="delta-resultado"></div>
+        </div>
+        <div class="kpi">
+          <div class="label">Margem</div>
+          <div class="value" id="kpi-margem">—</div>
+          <div class="delta" id="delta-margem"></div>
+        </div>
+      </section>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-head">
+            <h2>Fluxo de caixa mensal</h2>
+            <div class="spacer"></div>
+            <button class="btn ghost icon-btn btn-export" data-chart="fluxo" data-nome="fluxo-de-caixa"
+                    title="Exportar PNG" aria-label="Exportar gráfico como PNG">⬇</button>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="chart-fluxo" role="img" aria-label="Gráfico de barras: receitas e despesas por mês"></canvas>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-head">
+            <h2>Resultado mensal</h2>
+            <span class="sub">receitas − despesas</span>
+            <div class="spacer"></div>
+            <button class="btn ghost icon-btn btn-export" data-chart="resultado" data-nome="resultado-mensal"
+                    title="Exportar PNG" aria-label="Exportar gráfico como PNG">⬇</button>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="chart-resultado" role="img" aria-label="Gráfico de barras: resultado por mês"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-head">
+            <h2>Saldo acumulado</h2>
+            <div class="spacer"></div>
+            <button class="btn ghost icon-btn btn-export" data-chart="saldo" data-nome="saldo-acumulado"
+                    title="Exportar PNG" aria-label="Exportar gráfico como PNG">⬇</button>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="chart-saldo" role="img" aria-label="Gráfico de linha: saldo acumulado ao longo dos meses"></canvas>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-head">
+            <h2>Despesas por categoria</h2>
+            <div class="spacer"></div>
+            <button class="btn ghost icon-btn btn-export" data-chart="categorias" data-nome="despesas-por-categoria"
+                    title="Exportar PNG" aria-label="Exportar gráfico como PNG">⬇</button>
+          </div>
+          <div class="donut-layout">
+            <div class="donut-wrap">
+              <canvas id="chart-categorias" role="img" aria-label="Gráfico de rosca: distribuição das despesas por categoria"></canvas>
+            </div>
+            <ul id="cat-list" class="cat-list"></ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <h2>Resumo mensal</h2>
+        </div>
+        <div class="table-scroll">
+          <table class="summary" id="summary-table" aria-label="Tabela com resumo mensal de receitas, despesas, resultado, margem e saldo acumulado">
+            <thead>
+              <tr>
+                <th>Mês</th><th>Receitas</th><th>Despesas</th><th>Resultado</th><th>Margem</th><th>Saldo acumulado</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+            <tfoot></tfoot>
+          </table>
+        </div>
+      </div>
+
+      <footer class="foot">
+        <span id="data-info"></span>
+        <span>·</span>
+        <span>Demonstração — no produto completo, estes são os seus dados.</span>
+      </footer>
+
+    </main>
+  </div>
+
+  <script src="js/vendor/chart.umd.min.js"></script>
+  <script src="js/sample-data.js"></script>
+  <script src="js/parser.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    /* demo não aceita arquivos: bloqueia o drop antes dos handlers do app */
+    ["drop", "dragover"].forEach(function (ev) {
+      document.addEventListener(ev, function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }, true);
+    });
+    /* garantia: se o painel não abriu (ex.: replaceState bloqueado), carrega os dados de exemplo */
+    window.addEventListener("load", function () {
+      var dash = document.getElementById("dashboard");
+      if (dash && dash.classList.contains("hidden")) {
+        document.getElementById("btn-sample").click();
+      }
+    });
+  </script>
+</body>
+</html>
