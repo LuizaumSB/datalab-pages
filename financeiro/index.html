@@ -7,13 +7,16 @@
 <meta name="description" content="Transforme sua planilha em um dashboard financeiro profissional. Fluxo de caixa, resultado, margem e despesas por categoria — sem Power BI, sem mensalidade, 100% offline.">
 <meta property="og:title" content="Dashboard Financeiro — DataLab">
 <meta property="og:description" content="Sua planilha vira um dashboard profissional em 60 segundos. Pagamento único, sem mensalidade, 100% offline.">
-<meta property="og:image" content="https://luizaumsb.github.io/datalab-pages/financeiro/img/hero-dark.png">
+<meta property="og:image" content="https://luizaumsb.github.io/datalab-pages/assets/og-image.png">
 <meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Archivo:wght@800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/base.css">
-<link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;📊&lt;/text&gt;&lt;/svg&gt;">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../assets/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
 <style>
 /* ---------- estilos específicos da página do produto ---------- */
 section.block{padding:64px 0}
@@ -27,14 +30,14 @@ section.block{padding:64px 0}
 .band .feature{background:var(--page)}
 .feature .ic{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;margin-bottom:13px}
 .feature .ic svg{width:17px;height:17px;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-.feature .ic.blue{background:rgba(57,135,229,.14)}
-.feature .ic.blue svg{stroke:var(--s1)}
+.feature .ic.blue{background:rgba(41,171,111,.14)}
+.feature .ic.blue svg{stroke:var(--brand)}
 .feature .ic.red{background:rgba(230,103,103,.12)}
 .feature .ic.red svg{stroke:var(--delta-bad)}
 .feature h3{font:600 15.5px/1.3 var(--font-sans);margin-bottom:6px}
 .feature p{font:400 14px/1.55 var(--font-sans);color:var(--ink-2)}
 
-.passo .num{width:34px;height:34px;border-radius:50%;background:var(--s1);color:#fff;font:700 15px/1 var(--font-mono);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.passo .num{width:34px;height:34px;border-radius:50%;background:var(--brand);color:var(--brand-ink);font:700 15px/1 var(--font-mono);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
 .passos-obs{margin-top:22px;text-align:center;font:400 13px/1.6 var(--font-mono);color:var(--ink-3)}
 
 .shots-duo{display:grid;grid-template-columns:2.4fr 1fr;gap:12px;align-items:start;margin-top:32px}
@@ -62,7 +65,7 @@ summary{cursor:pointer;padding:17px 20px;font:600 15.5px/1.4 var(--font-sans);li
 summary::-webkit-details-marker{display:none}
 summary::after{content:"+";color:var(--ink-3);font:400 20px/1 var(--font-mono);flex:none}
 details[open] summary::after{content:"–"}
-summary:focus-visible{outline:3px solid var(--s1);outline-offset:-3px}
+summary:focus-visible{outline:3px solid var(--brand);outline-offset:-3px}
 details .resp{padding:0 20px 18px;font:400 14.5px/1.6 var(--font-sans);color:var(--ink-2)}
 
 @media (max-width:1023px){
@@ -79,7 +82,7 @@ details .resp{padding:0 20px 18px;font:400 14.5px/1.6 var(--font-sans);color:var
 
 <header>
   <div class="wrap">
-    <a class="logo" href="../">Data<span>Lab</span></a>
+    <a class="logo" href="../" aria-label="DataLab — página inicial"><img src="../assets/logo-dark.png" alt="DataLab" width="909" height="234"></a>
     <nav>
       <a href="../#biblioteca">Biblioteca</a>
       <a href="#como-funciona">Como funciona</a>

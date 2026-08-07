@@ -99,6 +99,13 @@ body {
 
 .brand .kit { color: var(--ink-3); font-size: 12px; font-weight: 500; white-space: nowrap; }
 
+/* marca no cabeçalho: alterna com o tema */
+.brand .logo-mark { height: 17px; width: auto; display: block; opacity: .92; }
+.brand .logo-mark.dark { display: none; }
+:root[data-theme="dark"] .brand .logo-mark.light { display: none; }
+:root[data-theme="dark"] .brand .logo-mark.dark { display: block; }
+
+
 .topbar .spacer { flex: 1; }
 
 .btn {
