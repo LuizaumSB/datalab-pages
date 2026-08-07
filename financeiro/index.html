@@ -40,9 +40,37 @@ section.block{padding:64px 0}
 .passo .num{width:34px;height:34px;border-radius:50%;background:var(--brand);color:var(--brand-ink);font:700 15px/1 var(--font-mono);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
 .passos-obs{margin-top:22px;text-align:center;font:400 13px/1.6 var(--font-mono);color:var(--ink-3)}
 
-.shots-duo{display:grid;grid-template-columns:2.4fr 1fr;gap:12px;align-items:start;margin-top:32px}
-.shot-frame{border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;background:#f9f9f7}
-.shot-cap{margin-top:8px;font:400 11.5px/1.5 var(--font-mono);color:var(--ink-3);text-align:center}
+.devices{display:grid;grid-template-columns:1.55fr 1fr;gap:22px;align-items:end;margin-top:34px;max-width:100%}
+.device{margin:0;min-width:0}
+.device figcaption{margin-top:12px;font:400 11.5px/1.5 var(--font-mono);color:var(--ink-3);text-align:center;letter-spacing:.04em;text-transform:uppercase}
+.device .browser{margin-bottom:0;box-shadow:none;max-width:100%}
+.device .card-head{flex-wrap:wrap;row-gap:4px}
+/* escopo de tema claro reaproveitando os componentes do painel */
+.light-scope{--page:#f9f9f7;--surface:#fcfcfb;--border:rgba(11,11,11,.10);--border-soft:rgba(11,11,11,.06);
+  --grid:#e1e0d9;--axis:#c3c2b7;--ink-1:#0b0b0b;--ink-2:#52514e;--ink-3:#898781;
+  --s1:#2a78d6;--s2:#eb6834;--s3:#1baf7a;--delta-good:#006300;
+  background:var(--page);color:var(--ink-1)}
+.mock-compact{padding:14px 16px 18px}
+.mock-compact .mock-top{padding-bottom:12px}
+.kpi-2{grid-template-columns:1fr 1fr}
+.bars-sm{height:104px}
+.bars-xs{height:72px;gap:5px}
+/* moldura de celular */
+.phone{width:100%;max-width:236px;margin:0 auto;border:8px solid #2c2c2a;border-radius:30px;background:var(--page);
+  box-shadow:0 -8px 60px rgba(41,171,111,.10);overflow:hidden}
+.phone-screen{position:relative;padding-top:16px;background:var(--page)}
+.phone-screen::before{content:"";position:absolute;top:5px;left:50%;transform:translateX(-50%);width:56px;height:5px;border-radius:3px;background:#2c2c2a}
+.mock-phone{padding:10px 10px 14px;display:flex;flex-direction:column;gap:8px}
+.mock-phone .mock-top{padding-bottom:0}
+.mock-phone .mock-top .title{font-size:13px}
+.mock-phone .segmented{padding:2px;align-self:flex-start}
+.mock-phone .segmented span{font-size:10.5px;padding:5px 8px}
+.mock-phone .card{padding:10px 12px}
+.mock-phone .kpi .label{font-size:10.5px}
+.mock-phone .kpi .value{font-size:17px;margin-top:4px}
+.mock-phone .kpi .delta{font-size:10px;margin-top:4px}
+.mock-phone .card-head{margin-bottom:10px}
+.mock-phone .card-head h3{font-size:12px}
 
 .oferta-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
 .incluso-list{list-style:none}
@@ -54,6 +82,7 @@ section.block{padding:64px 0}
 .price-card .plabel{font:500 10.5px/1 var(--font-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2)}
 .price-card .price{margin-top:12px;font:900 54px/1 var(--font-display);letter-spacing:-.03em}
 .price-card .price small{font-size:22px;font-weight:800;vertical-align:16px;margin-right:4px}
+.price-card .cents{font-size:26px;font-weight:800;letter-spacing:-.02em}
 .price-card .ponce{margin:8px 0 22px;font:400 12.5px/1 var(--font-mono);color:var(--ink-3)}
 .price-card .btn{width:100%;text-align:center}
 .price-card .garantia{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:16px;font:400 13px/1.4 var(--font-sans);color:var(--ink-2)}
@@ -70,11 +99,23 @@ details .resp{padding:0 20px 18px;font:400 14.5px/1.6 var(--font-sans);color:var
 
 @media (max-width:1023px){
   .grid-3{grid-template-columns:1fr}
+  .devices{grid-template-columns:1fr;gap:34px;align-items:stretch}
   .oferta-grid{grid-template-columns:1fr;gap:26px}
 }
 @media (max-width:640px){
   section.block{padding:44px 0}
-  .shots-duo{grid-template-columns:1fr}
+  .devices{gap:26px}
+  .mock-compact{padding:11px}
+  .mock-compact .mock-top .title{font-size:13.5px}
+  .mock-compact .card{padding:11px 12px}
+  .mock-compact .kpi .label{font-size:10.5px}
+  .mock-compact .kpi .value{font-size:17px;margin-top:4px}
+  .mock-compact .card-head h3{font-size:12.5px}
+  .mock-compact .legend{font-size:10px}
+  .kpi-2{gap:8px}
+  .bars-sm{height:80px;gap:4px}
+  .phone{max-width:200px}
+  .device figcaption{font-size:10.5px}
 }
 </style>
 </head>
@@ -89,7 +130,7 @@ details .resp{padding:0 20px 18px;font:400 14.5px/1.6 var(--font-sans);color:var
       <a href="#oferta">Preços</a>
       <a href="#faq">FAQ</a>
     </nav>
-    <a class="btn-mini" href="https://pay.kiwify.com.br/V7R8a9d">Comprar — R$ 30</a>
+    <a class="btn-mini" href="https://pay.kiwify.com.br/V7R8a9d">Comprar — R$ 59,90</a>
   </div>
 </header>
 
@@ -101,7 +142,7 @@ details .resp{padding:0 20px 18px;font:400 14.5px/1.6 var(--font-sans);color:var
       <h1>O financeiro do seu negócio<br><em>em uma tela</em></h1>
       <p>Preencha a planilha modelo e arraste. Fluxo de caixa, resultado, margem e despesas por categoria — montados automaticamente no seu navegador, sem enviar nada.</p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="https://pay.kiwify.com.br/V7R8a9d">Quero meu dashboard — R$ 30</a>
+        <a class="btn btn-primary" href="https://pay.kiwify.com.br/V7R8a9d">Quero meu dashboard — R$ 59,90</a>
         <a class="btn btn-ghost" href="demo/">Ver demonstração ao vivo</a>
       </div>
 
@@ -308,19 +349,64 @@ details .resp{padding:0 20px 18px;font:400 14.5px/1.6 var(--font-sans);color:var
           <p>Tudo, 12, 6 ou 3 meses — todos os gráficos e indicadores recalculam juntos.</p>
         </div>
       </div>
-      <div class="shots-duo">
-        <div>
-          <div class="shot-frame">
-            <img src="img/full-light.png" alt="Dashboard Financeiro completo em modo claro, com gráficos, indicadores e tabela de resumo mensal" width="1440" height="2350" loading="lazy">
+      <div class="devices">
+        <!-- tema claro: mesmo painel, tokens invertidos -->
+        <figure class="device">
+          <div class="browser light-scope">
+            <div class="browser-bar" aria-hidden="true">
+              <i></i><i></i><i></i>
+              <div class="browser-url"><span>file:///dashboard-financeiro/index.html</span></div>
+            </div>
+            <div class="mock mock-compact">
+              <div class="mock-top"><span class="title">Dashboard Financeiro</span><span class="sp"></span><span class="chip">◐</span></div>
+              <div class="kpi-grid kpi-2">
+                <div class="card kpi"><div class="label">Receitas</div><div class="value">R$ 211.700</div></div>
+                <div class="card kpi"><div class="label">Resultado</div><div class="value good">R$ 64.600</div></div>
+              </div>
+              <div class="card">
+                <div class="card-head"><h3>Fluxo de caixa mensal</h3><span class="sp"></span>
+                  <span class="legend"><i style="background:var(--s1)"></i>Receita</span>
+                  <span class="legend"><i style="background:var(--s2)"></i>Despesa</span>
+                </div>
+                <div class="bars bars-sm">
+                  <div class="col"><b class="r" style="height:52%"></b><b class="d" style="height:38%"></b></div>
+                  <div class="col"><b class="r" style="height:66%"></b><b class="d" style="height:47%"></b></div>
+                  <div class="col"><b class="r" style="height:71%"></b><b class="d" style="height:51%"></b></div>
+                  <div class="col"><b class="r" style="height:77%"></b><b class="d" style="height:54%"></b></div>
+                  <div class="col"><b class="r" style="height:82%"></b><b class="d" style="height:56%"></b></div>
+                  <div class="col"><b class="r" style="height:90%"></b><b class="d" style="height:63%"></b></div>
+                  <div class="col"><b class="r" style="height:100%"></b><b class="d" style="height:64%"></b></div>
+                </div>
+              </div>
+            </div>
           </div>
-          <p class="shot-cap">TEMA CLARO — O MESMO PAINEL, UM CLIQUE</p>
-        </div>
-        <div>
-          <div class="shot-frame">
-            <img src="img/mobile-dark.png" alt="Dashboard Financeiro aberto em um celular, mostrando o layout responsivo" width="390" height="1500" loading="lazy">
+          <figcaption>Tema claro — o mesmo painel, um clique</figcaption>
+        </figure>
+
+        <!-- responsivo: moldura de celular -->
+        <figure class="device">
+          <div class="phone">
+            <div class="phone-screen">
+              <div class="mock mock-phone">
+                <div class="mock-top"><span class="title">Dashboard Financeiro</span></div>
+                <div class="segmented"><span aria-pressed="true">Tudo</span><span>12 m</span><span>6 m</span></div>
+                <div class="card kpi"><div class="label">Receitas</div><div class="value">R$ 211.700</div><div class="delta up">▲ 17,8%</div></div>
+                <div class="card kpi"><div class="label">Resultado</div><div class="value good">R$ 64.600</div><div class="delta up">▲ 32,3%</div></div>
+                <div class="card">
+                  <div class="card-head"><h3>Fluxo de caixa</h3></div>
+                  <div class="bars bars-xs">
+                    <div class="col"><b class="r" style="height:52%"></b><b class="d" style="height:38%"></b></div>
+                    <div class="col"><b class="r" style="height:71%"></b><b class="d" style="height:51%"></b></div>
+                    <div class="col"><b class="r" style="height:82%"></b><b class="d" style="height:56%"></b></div>
+                    <div class="col"><b class="r" style="height:90%"></b><b class="d" style="height:63%"></b></div>
+                    <div class="col"><b class="r" style="height:100%"></b><b class="d" style="height:64%"></b></div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <p class="shot-cap">RESPONSIVO — CELULAR E TABLET</p>
-        </div>
+          <figcaption>Responsivo — celular e tablet</figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -342,7 +428,7 @@ details .resp{padding:0 20px 18px;font:400 14.5px/1.6 var(--font-sans);color:var
         </ul>
         <div class="price-card">
           <div class="plabel">Preço de lançamento</div>
-          <div class="price"><small>R$</small>30</div>
+          <div class="price"><small>R$</small>59<span class="cents">,90</span></div>
           <div class="ponce">PAGAMENTO ÚNICO · SEM MENSALIDADE</div>
           <a class="btn btn-primary" href="https://pay.kiwify.com.br/V7R8a9d">Comprar agora</a>
           <div class="garantia"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Garantia de 7 dias — devolução integral</div>
@@ -396,7 +482,7 @@ details .resp{padding:0 20px 18px;font:400 14.5px/1.6 var(--font-sans);color:var
     <div class="wrap">
       <h2>Pare de olhar linhas.<br>Veja o negócio.</h2>
       <p>Em menos de um minuto a partir de agora, seus números podem estar organizados em um dashboard profissional.</p>
-      <a class="btn btn-primary" href="https://pay.kiwify.com.br/V7R8a9d">Quero meu dashboard — R$ 30</a>
+      <a class="btn btn-primary" href="https://pay.kiwify.com.br/V7R8a9d">Quero meu dashboard — R$ 59,90</a>
     </div>
   </section>
 </main>
@@ -408,7 +494,7 @@ details .resp{padding:0 20px 18px;font:400 14.5px/1.6 var(--font-sans);color:var
 </footer>
 
 <div class="sticky-cta">
-  <a class="btn btn-primary" href="https://pay.kiwify.com.br/V7R8a9d">Comprar por R$ 30 — acesso imediato</a>
+  <a class="btn btn-primary" href="https://pay.kiwify.com.br/V7R8a9d">Comprar por R$ 59,90 — acesso imediato</a>
 </div>
 
 </body>
