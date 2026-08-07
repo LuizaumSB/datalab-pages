@@ -57,7 +57,7 @@ header nav a:hover{color:var(--ink-1)}
 .hero-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:44px}
 
 /* janela de navegador com o painel */
-.browser{border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);overflow:hidden;background:var(--page);box-shadow:0 -8px 60px rgba(41,171,111,.12);margin-bottom:64px}
+.browser{text-align:left;border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);overflow:hidden;background:var(--page);box-shadow:0 -8px 60px rgba(41,171,111,.12);margin-bottom:64px}
 .browser-bar{display:flex;align-items:center;gap:10px;padding:11px 16px;background:var(--surface);border-bottom:1px solid var(--border)}
 .browser-bar i{width:10px;height:10px;border-radius:50%;background:var(--axis)}
 .browser-url{flex:1;display:flex;justify-content:center}
@@ -99,13 +99,13 @@ header nav a:hover{color:var(--ink-1)}
 .bars .col b.res{background:var(--s3)}
 .xaxis{display:flex;gap:8px;margin-top:8px;font:400 10.5px/1 var(--font-mono);color:var(--ink-3)}
 .xaxis span{flex:1;text-align:center}
-.donut-layout{display:flex;align-items:center;gap:24px}
+.donut-layout{display:flex;align-items:center;gap:24px;max-width:760px}
 .donut{width:130px;height:130px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;
   background:conic-gradient(var(--s1) 0 34%,var(--s2) 34% 58%,var(--s4) 58% 73%,var(--s3) 73% 85%,var(--s7) 85% 93%,var(--other) 93% 100%)}
 .donut .hole{width:74px;height:74px;border-radius:50%;background:var(--surface);display:flex;flex-direction:column;align-items:center;justify-content:center}
 .donut .hole small{font:400 10px/1 var(--font-mono);color:var(--ink-3)}
 .donut .hole strong{margin-top:4px;font:600 14px/1 var(--font-sans)}
-.cat-list{flex:1;display:flex;flex-direction:column;gap:9px;list-style:none}
+.cat-list{flex:1;display:flex;flex-direction:column;gap:9px;list-style:none;text-align:left}
 .cat-list li{display:flex;align-items:center;gap:9px;font:400 12.5px/1 var(--font-sans);color:var(--ink-2)}
 .cat-list i{width:8px;height:8px;border-radius:2px}
 .cat-list .name{flex:1}
