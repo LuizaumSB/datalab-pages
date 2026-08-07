@@ -1,0 +1,422 @@
+/* ==========================================================================
+   DataLab — estilo compartilhado dos dashboards
+   Tokens de design + layout. Tema claro/escuro via [data-theme] no <html>.
+   ========================================================================== */
+
+:root {
+  color-scheme: light;
+
+  /* superfícies */
+  --page: #f9f9f7;
+  --surface: #fcfcfb;
+  --border: rgba(11, 11, 11, 0.10);
+  --grid: #e1e0d9;
+  --axis: #c3c2b7;
+
+  /* tinta */
+  --ink-1: #0b0b0b;
+  --ink-2: #52514e;
+  --ink-3: #898781;
+
+  /* séries (ordem fixa — nunca reordenar por rank) */
+  --s1: #2a78d6;  /* Receita */
+  --s2: #eb6834;  /* Despesa */
+  --s3: #1baf7a;  /* Resultado */
+  --s4: #eda100;
+  --s5: #e87ba4;
+  --s6: #008300;
+  --s7: #4a3aa7;
+  --other: #898781;
+
+  /* status / deltas */
+  --delta-good: #006300;
+  --delta-bad: #d03b3b;
+
+  --brand: #29ab6f;
+  --radius: 12px;
+  --shadow: 0 1px 2px rgba(11, 11, 11, 0.04);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --page: #0d0d0d;
+  --surface: #1a1a19;
+  --border: rgba(255, 255, 255, 0.10);
+  --grid: #2c2c2a;
+  --axis: #383835;
+
+  --ink-1: #ffffff;
+  --ink-2: #c3c2b7;
+  --ink-3: #898781;
+
+  --s1: #3987e5;
+  --s2: #d95926;
+  --s3: #199e70;
+  --s4: #c98500;
+  --s5: #d55181;
+  --s6: #008300;
+  --s7: #9085e9;
+  --other: #898781;
+
+  --delta-good: #0ca30c;
+  --delta-bad: #e66767;
+
+  --shadow: none;
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; padding: 0; }
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: var(--page);
+  color: var(--ink-1);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px 48px;
+}
+
+/* --------------------------------------------------------------------------
+   Cabeçalho
+   -------------------------------------------------------------------------- */
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 0 14px;
+}
+
+.brand { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
+
+.brand h1 { font-size: 17px; font-weight: 650; margin: 0; white-space: nowrap; }
+
+.brand .kit { color: var(--ink-3); font-size: 12px; font-weight: 500; white-space: nowrap; }
+
+/* marca no cabeçalho: alterna com o tema */
+.brand .logo-mark { height: 17px; width: auto; display: block; opacity: .92; }
+.brand .logo-mark.dark { display: none; }
+:root[data-theme="dark"] .brand .logo-mark.light { display: none; }
+:root[data-theme="dark"] .brand .logo-mark.dark { display: block; }
+
+
+.topbar .spacer { flex: 1; }
+
+.btn {
+  appearance: none;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--ink-1);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 7px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.btn:hover { border-color: var(--ink-3); }
+
+.btn.primary { background: var(--s1); border-color: var(--s1); color: #fff; }
+.btn.primary:hover { filter: brightness(1.07); }
+
+.btn.ghost { background: transparent; border-color: transparent; color: var(--ink-2); }
+.btn.ghost:hover { background: var(--surface); border-color: var(--border); }
+
+.icon-btn {
+  padding: 7px 9px;
+  font-size: 14px;
+  line-height: 1;
+}
+
+/* --------------------------------------------------------------------------
+   Estado vazio / upload
+   -------------------------------------------------------------------------- */
+
+.empty-state {
+  margin: 40px auto;
+  max-width: 640px;
+  text-align: center;
+}
+
+.dropzone {
+  border: 2px dashed var(--axis);
+  border-radius: var(--radius);
+  background: var(--surface);
+  padding: 48px 32px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.dropzone.dragover { border-color: var(--s1); background: color-mix(in srgb, var(--s1) 5%, var(--surface)); }
+
+.dropzone .dz-icon { font-size: 34px; margin-bottom: 10px; }
+
+.dropzone h2 { font-size: 18px; font-weight: 650; margin: 0 0 6px; }
+
+.dropzone p { color: var(--ink-2); margin: 0; }
+
+.dropzone .formats { color: var(--ink-3); font-size: 12px; margin-top: 10px; }
+
+.empty-actions { margin-top: 16px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+
+.empty-steps {
+  margin: 28px auto 0;
+  text-align: left;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 22px;
+}
+
+.empty-steps h3 { margin: 0 0 10px; font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--ink-3); }
+
+.empty-steps ol { margin: 0; padding-left: 20px; color: var(--ink-2); }
+
+.empty-steps li { margin: 5px 0; }
+
+/* --------------------------------------------------------------------------
+   Aviso / erro
+   -------------------------------------------------------------------------- */
+
+.banner {
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--delta-bad);
+  background: var(--surface);
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin: 12px 0;
+  color: var(--ink-2);
+  font-size: 13px;
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.banner.hidden { display: none; }
+
+/* --------------------------------------------------------------------------
+   Filtros
+   -------------------------------------------------------------------------- */
+
+.filter-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 6px 0 18px;
+  flex-wrap: wrap;
+}
+
+.segmented {
+  display: inline-flex;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  padding: 3px;
+  gap: 2px;
+}
+
+.segmented button {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--ink-2);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 5px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.segmented button:hover { color: var(--ink-1); }
+
+.segmented button[aria-pressed="true"] {
+  background: color-mix(in srgb, var(--s1) 12%, transparent);
+  color: var(--ink-1);
+  font-weight: 600;
+}
+
+.filter-row .period-label { color: var(--ink-3); font-size: 12.5px; }
+
+/* --------------------------------------------------------------------------
+   KPIs
+   -------------------------------------------------------------------------- */
+
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.kpi {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 16px 18px 14px;
+}
+
+.kpi .label { color: var(--ink-2); font-size: 12.5px; margin-bottom: 6px; }
+
+.kpi .value { font-size: 26px; font-weight: 650; letter-spacing: -0.01em; }
+
+.kpi .delta { margin-top: 6px; font-size: 12px; color: var(--ink-3); display: flex; align-items: center; gap: 4px; }
+
+.kpi .delta .arrow { font-weight: 700; }
+
+.kpi .delta.good .arrow, .kpi .delta.good .pct { color: var(--delta-good); font-weight: 600; }
+
+.kpi .delta.bad .arrow, .kpi .delta.bad .pct { color: var(--delta-bad); font-weight: 600; }
+
+/* --------------------------------------------------------------------------
+   Cards de gráfico
+   -------------------------------------------------------------------------- */
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 16px 18px;
+  min-width: 0;
+}
+
+.card-head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.card-head h2 { font-size: 14px; font-weight: 650; margin: 0; }
+
+.card-head .sub { color: var(--ink-3); font-size: 12px; }
+
+.card-head .spacer { flex: 1; }
+
+.chart-wrap { position: relative; height: 260px; }
+
+.chart-wrap.tall { height: 300px; }
+
+/* --------------------------------------------------------------------------
+   Donut + lista de categorias
+   -------------------------------------------------------------------------- */
+
+.donut-layout {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 18px;
+  align-items: center;
+}
+
+.donut-wrap { position: relative; height: 180px; }
+
+.cat-list { list-style: none; margin: 0; padding: 0; font-size: 13px; }
+
+.cat-list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 0;
+  border-bottom: 1px solid var(--grid);
+}
+
+.cat-list li:last-child { border-bottom: 0; }
+
+.cat-list .swatch { width: 10px; height: 10px; border-radius: 3px; flex: none; }
+
+.cat-list .name { color: var(--ink-2); min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.cat-list .spacer { flex: 1; }
+
+.cat-list .val { font-weight: 600; font-variant-numeric: tabular-nums; }
+
+.cat-list .pct { color: var(--ink-3); font-variant-numeric: tabular-nums; width: 44px; text-align: right; }
+
+/* --------------------------------------------------------------------------
+   Tabela resumo
+   -------------------------------------------------------------------------- */
+
+.table-scroll { overflow-x: auto; }
+
+table.summary {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+table.summary th, table.summary td { padding: 8px 10px; text-align: right; white-space: nowrap; }
+
+table.summary th:first-child, table.summary td:first-child { text-align: left; }
+
+table.summary thead th {
+  color: var(--ink-3);
+  font-weight: 500;
+  font-size: 12px;
+  border-bottom: 1px solid var(--axis);
+}
+
+table.summary tbody td { border-bottom: 1px solid var(--grid); font-variant-numeric: tabular-nums; }
+
+table.summary tbody tr:last-child td { border-bottom: 0; }
+
+table.summary td.neg { color: var(--delta-bad); }
+
+table.summary tfoot td {
+  border-top: 1px solid var(--axis);
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+}
+
+/* --------------------------------------------------------------------------
+   Rodapé
+   -------------------------------------------------------------------------- */
+
+.foot {
+  margin-top: 22px;
+  color: var(--ink-3);
+  font-size: 12px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* --------------------------------------------------------------------------
+   Responsivo
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 900px) {
+  .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+  .grid-2 { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 560px) {
+  .kpi-grid { grid-template-columns: 1fr; }
+  .donut-layout { grid-template-columns: 1fr; }
+  .donut-wrap { height: 200px; }
+  .topbar { flex-wrap: wrap; }
+  .kpi .value { font-size: 23px; }
+}
+
+.hidden { display: none !important; }
