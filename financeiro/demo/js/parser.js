@@ -1,4 +1,4 @@
-/* DashboardKit — parser e agregações do Dashboard Financeiro.
+/* DataLab — parser e agregações do Dashboard Financeiro.
    Sem dependência de DOM: também roda em Node para testes. */
 (function (global) {
   "use strict";

@@ -1,4 +1,4 @@
-/* DashboardKit — Dashboard Financeiro (camada de UI e gráficos) */
+/* DataLab — Dashboard Financeiro (camada de UI e gráficos) */
 (function () {
   "use strict";
 
