@@ -29,143 +29,37 @@
       <a href="#precos">Preços</a>
       <a href="financeiro/#faq">FAQ</a>
     </nav>
-    <a class="btn-mini" href="https://pay.kiwify.com.br/V7R8a9d">Comprar — R$ 59,90</a>
+    <a class="btn-mini" href="#biblioteca">Ver dashboards</a>
   </div>
 </header>
 
 <main>
   <!-- ================= HERO ================= -->
+  <!-- INICIO-HERO -->
   <section class="hero">
     <div class="wrap">
+      <span class="badge"><span class="dot"></span>10 dashboards prontos · novos todo mês</span>
       <h1>Do Excel ao dashboard<br>em <em>60 segundos</em></h1>
-      <p>Preencha a planilha modelo e arraste. O painel calcula os indicadores, monta os gráficos e a tabela de resumo no seu navegador.</p>
+      <p>Escolha a área do seu negócio, preencha a planilha modelo e arraste. O painel calcula os indicadores, monta os gráficos e a tabela — no seu navegador, sem enviar nada.</p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="https://pay.kiwify.com.br/V7R8a9d">Quero meu dashboard</a>
-        <a class="btn btn-ghost" href="financeiro/demo/">Ver com dados de exemplo</a>
+        <a class="btn btn-primary" href="#biblioteca">Ver os 10 dashboards</a>
+        <a class="btn btn-ghost" href="financeiro/demo/">Ver demonstração ao vivo</a>
       </div>
 
-      <!-- Painel recriado em HTML/SVG (sem screenshots). Dados: demonstração. -->
-      <div class="browser">
-        <div class="browser-bar" aria-hidden="true">
-          <i></i><i></i><i></i>
-          <div class="browser-url"><span>file:///dashboard-financeiro/index.html</span></div>
-        </div>
-
-        <div class="mock">
-          <div class="mock-top">
-            <span class="title">Dashboard Financeiro</span>
-            <span class="sp"></span>
-            <span class="chip">↻ Trocar planilha</span>
-            <span class="chip">◐</span>
+      <!-- Painéis recriados em HTML/SVG, com os números reais de cada nicho. -->
+      <div class="vitrine">
+        <div class="abas" role="group" aria-label="Escolha o dashboard"><button class="aba ativa" data-alvo="financeiro" aria-pressed="true">Financeiro</button><button class="aba" data-alvo="comercial" aria-pressed="false">Comercial</button><button class="aba" data-alvo="marketing" aria-pressed="false">Marketing</button><button class="aba" data-alvo="restaurante" aria-pressed="false">Restaurante</button><button class="aba" data-alvo="ecommerce" aria-pressed="false">E-commerce</button></div>
+        <div class="browser">
+          <div class="browser-bar" aria-hidden="true">
+            <i></i><i></i><i></i>
+            <div class="browser-url"><span id="url-mock">file:///dashboard-financeiro/index.html</span></div>
           </div>
-
-          <div class="mock-filters">
-            <div class="segmented" role="group" aria-label="Período">
-              <span aria-pressed="true">Tudo</span><span>12 meses</span><span>6 meses</span><span>3 meses</span>
-            </div>
-            <span class="period">jan/2025 — dez/2025 · 12 meses</span>
-          </div>
-
-          <div class="kpi-grid">
-            <div class="card kpi"><div class="label">Receitas</div><div class="value">R$ 211.700</div><div class="delta up">▲ 17,8% vs período anterior</div></div>
-            <div class="card kpi"><div class="label">Despesas</div><div class="value">R$ 147.100</div><div class="delta down">▲ 9,4% vs período anterior</div></div>
-            <div class="card kpi"><div class="label">Resultado</div><div class="value good">R$ 64.600</div><div class="delta up">▲ 32,3% vs período anterior</div></div>
-            <div class="card kpi"><div class="label">Margem</div><div class="value">30,5%</div><div class="meter"><b style="width:30.5%"></b></div></div>
-          </div>
-
-          <div class="grid-2">
-            <div class="card">
-              <div class="card-head">
-                <h3>Fluxo de caixa mensal</h3><span class="sp"></span>
-                <span class="legend"><i style="background:var(--s1)"></i>Receita</span>
-                <span class="legend"><i style="background:var(--s2)"></i>Despesa</span>
-              </div>
-              <div class="bars">
-                <div class="col"><b class="r" style="height:52%"></b><b class="d" style="height:38%"></b></div>
-                <div class="col"><b class="r" style="height:55%"></b><b class="d" style="height:44%"></b></div>
-                <div class="col"><b class="r" style="height:66%"></b><b class="d" style="height:47%"></b></div>
-                <div class="col"><b class="r" style="height:60%"></b><b class="d" style="height:41%"></b></div>
-                <div class="col"><b class="r" style="height:71%"></b><b class="d" style="height:51%"></b></div>
-                <div class="col"><b class="r" style="height:77%"></b><b class="d" style="height:54%"></b></div>
-                <div class="col"><b class="r" style="height:72%"></b><b class="d" style="height:49%"></b></div>
-                <div class="col"><b class="r" style="height:82%"></b><b class="d" style="height:56%"></b></div>
-                <div class="col"><b class="r" style="height:79%"></b><b class="d" style="height:54%"></b></div>
-                <div class="col"><b class="r" style="height:90%"></b><b class="d" style="height:63%"></b></div>
-                <div class="col"><b class="r" style="height:85%"></b><b class="d" style="height:58%"></b></div>
-                <div class="col"><b class="r" style="height:100%"></b><b class="d" style="height:64%"></b></div>
-              </div>
-              <div class="xaxis"><span>jan</span><span>fev</span><span>mar</span><span>abr</span><span>mai</span><span>jun</span><span>jul</span><span>ago</span><span>set</span><span>out</span><span>nov</span><span>dez</span></div>
-            </div>
-
-            <div class="card">
-              <div class="card-head"><h3>Resultado mensal</h3><span class="sub">receitas − despesas</span></div>
-              <div class="bars">
-                <div class="col"><b class="res" style="height:38%"></b></div>
-                <div class="col"><b class="res" style="height:31%"></b></div>
-                <div class="col"><b class="res" style="height:53%"></b></div>
-                <div class="col"><b class="res" style="height:51%"></b></div>
-                <div class="col"><b class="res" style="height:56%"></b></div>
-                <div class="col"><b class="res" style="height:63%"></b></div>
-                <div class="col"><b class="res" style="height:64%"></b></div>
-                <div class="col"><b class="res" style="height:72%"></b></div>
-                <div class="col"><b class="res" style="height:71%"></b></div>
-                <div class="col"><b class="res" style="height:76%"></b></div>
-                <div class="col"><b class="res" style="height:76%"></b></div>
-                <div class="col"><b class="res" style="height:100%"></b></div>
-              </div>
-              <div class="xaxis"><span>jan</span><span>fev</span><span>mar</span><span>abr</span><span>mai</span><span>jun</span><span>jul</span><span>ago</span><span>set</span><span>out</span><span>nov</span><span>dez</span></div>
-            </div>
-          </div>
-
-          <div class="grid-2">
-            <div class="card">
-              <div class="card-head"><h3>Saldo acumulado</h3></div>
-              <svg viewBox="0 0 480 150" style="display:block;width:100%;height:150px" preserveAspectRatio="none" role="img" aria-label="Linha do saldo acumulado subindo de R$ 3.300 em janeiro a R$ 64.600 em dezembro">
-                <line x1="0" y1="20" x2="480" y2="20" stroke="#2c2c2a"></line>
-                <line x1="0" y1="57" x2="480" y2="57" stroke="#2c2c2a"></line>
-                <line x1="0" y1="94" x2="480" y2="94" stroke="#2c2c2a"></line>
-                <line x1="0" y1="131" x2="480" y2="131" stroke="#383835"></line>
-                <polygon points="10,125.6 51.8,120.8 93.6,112.6 135.5,104.8 177.3,96.3 219.1,86.6 260.9,76.9 302.7,65.8 344.5,54.9 386.4,43.5 428.2,31.8 470,16.5 470,131 10,131" fill="#3987e5" opacity=".13"></polygon>
-                <polyline points="10,125.6 51.8,120.8 93.6,112.6 135.5,104.8 177.3,96.3 219.1,86.6 260.9,76.9 302.7,65.8 344.5,54.9 386.4,43.5 428.2,31.8 470,16.5" fill="none" stroke="#3987e5" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"></polyline>
-                <circle cx="470" cy="16.5" r="4" fill="#3987e5"></circle>
-              </svg>
-              <div class="xaxis"><span>jan</span><span>fev</span><span>mar</span><span>abr</span><span>mai</span><span>jun</span><span>jul</span><span>ago</span><span>set</span><span>out</span><span>nov</span><span>dez</span></div>
-            </div>
-
-            <div class="card">
-              <div class="card-head"><h3>Despesas por categoria</h3></div>
-              <div class="donut-layout">
-                <div class="donut" role="img" aria-label="Rosca das despesas por categoria"><span class="hole"><small>TOTAL</small><strong>147,1k</strong></span></div>
-                <ul class="cat-list">
-                  <li><i style="background:var(--s1)"></i><span class="name">Folha</span><span class="val">R$ 50.014</span><span class="pct">34%</span></li>
-                  <li><i style="background:var(--s2)"></i><span class="name">Fornecedores</span><span class="val">R$ 35.304</span><span class="pct">24%</span></li>
-                  <li><i style="background:var(--s4)"></i><span class="name">Marketing</span><span class="val">R$ 22.065</span><span class="pct">15%</span></li>
-                  <li><i style="background:var(--s3)"></i><span class="name">Impostos</span><span class="val">R$ 17.652</span><span class="pct">12%</span></li>
-                  <li><i style="background:var(--s7)"></i><span class="name">Aluguel</span><span class="val">R$ 11.768</span><span class="pct">8%</span></li>
-                  <li><i style="background:var(--other)"></i><span class="name">Outros</span><span class="val">R$ 10.297</span><span class="pct">7%</span></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-head"><h3>Resumo mensal</h3></div>
-            <div class="table-scroll">
-              <table class="summary">
-                <thead><tr><th>Mês</th><th>Receitas</th><th>Despesas</th><th>Resultado</th><th>Margem</th><th>Saldo acumulado</th></tr></thead>
-                <tbody>
-                  <tr><td>out/2025</td><td>21.400</td><td>14.900</td><td class="good">6.500</td><td>30,4%</td><td>49.500</td></tr>
-                  <tr><td>nov/2025</td><td>20.200</td><td>13.700</td><td class="good">6.500</td><td>32,2%</td><td>56.000</td></tr>
-                  <tr><td>dez/2025</td><td>23.800</td><td>15.200</td><td class="good">8.600</td><td>36,1%</td><td>64.600</td></tr>
-                </tbody>
-                <tfoot><tr><td>Total</td><td>211.700</td><td>147.100</td><td>64.600</td><td>30,5%</td><td>64.600</td></tr></tfoot>
-              </table>
-            </div>
-          </div>
+          <div class="paineis"><div class="painel ativo" data-nicho="financeiro" ><div class="mock"><div class="mock-top"><span class="title">Dashboard Financeiro</span><span class="kit">DATALAB</span><span class="sp"></span><span class="chip">↻ Trocar planilha</span><span class="chip">◐</span></div><div class="kpi-grid"><div class="card kpi"><div class="label">Receitas</div><div class="value">R$ 548.475</div><div class="delta down">▼ 18,3% vs mês anterior</div></div><div class="card kpi"><div class="label">Despesas</div><div class="value">R$ 429.808</div><div class="delta up">▼ 20,2% vs mês anterior</div></div><div class="card kpi"><div class="label">Resultado</div><div class="value">R$ 118.668</div><div class="delta down">▼ 7,2% vs mês anterior</div></div><div class="card kpi"><div class="label">Margem</div><div class="value">21,6%</div><div class="meter"><b style="width:22%"></b></div></div></div><div class="grid-2"><div class="card"><div class="card-head"><h3>Receitas por mês</h3></div><div class="bars anim"><div class="col"><b class="r" style="--h:61%"></b></div><div class="col"><b class="r" style="--h:65%"></b></div><div class="col"><b class="r" style="--h:66%"></b></div><div class="col"><b class="r" style="--h:66%"></b></div><div class="col"><b class="r" style="--h:84%"></b></div><div class="col"><b class="r" style="--h:66%"></b></div><div class="col"><b class="r" style="--h:67%"></b></div><div class="col"><b class="r" style="--h:77%"></b></div><div class="col"><b class="r" style="--h:81%"></b></div><div class="col"><b class="r" style="--h:77%"></b></div><div class="col"><b class="r" style="--h:100%"></b></div><div class="col"><b class="r" style="--h:82%"></b></div></div><div class="xaxis"><span>ago</span><span>set</span><span>out</span><span>nov</span><span>dez</span><span>jan</span><span>fev</span><span>mar</span><span>abr</span><span>mai</span><span>jun</span><span>jul</span></div></div><div class="card"><div class="card-head"><h3>Despesas por categoria</h3></div><div class="donut-layout"><div class="donut" style="background:conic-gradient(var(--s1) 0% 34%,var(--s2) 34% 58%,var(--s4) 58% 71%,var(--s3) 71% 81%,var(--other) 81% 100%)"><span class="hole"><small>TOTAL</small><strong>R$ 429.808</strong></span></div><ul class="cat-list"><li><i style="background:var(--s1)"></i><span class="name">Folha de pagamento</span><span class="val">R$ 147.858</span><span class="pct">34%</span></li><li><i style="background:var(--s2)"></i><span class="name">Fornecedores</span><span class="val">R$ 102.638</span><span class="pct">24%</span></li><li><i style="background:var(--s4)"></i><span class="name">Impostos</span><span class="val">R$ 55.157</span><span class="pct">13%</span></li><li><i style="background:var(--s3)"></i><span class="name">Aluguel</span><span class="val">R$ 42.524</span><span class="pct">10%</span></li><li><i style="background:var(--other)"></i><span class="name">Outros</span><span class="val">R$ 81.630</span><span class="pct">19%</span></li></ul></div></div></div></div></div><div class="painel" data-nicho="comercial" aria-hidden=true><div class="mock"><div class="mock-top"><span class="title">Dashboard Comercial</span><span class="kit">DATALAB</span><span class="sp"></span><span class="chip">↻ Trocar planilha</span><span class="chip">◐</span></div><div class="kpi-grid"><div class="card kpi"><div class="label">Faturamento</div><div class="value">R$ 314.653</div><div class="delta up">▲ 5,7% vs mês anterior</div></div><div class="card kpi"><div class="label">Pedidos</div><div class="value">164</div><div class="delta up">▲ 5,9% vs mês anterior</div></div><div class="card kpi"><div class="label">Ticket médio</div><div class="value">R$ 1.919</div><div class="delta down">▼ 0,1% vs mês anterior</div></div><div class="card kpi"><div class="label">Clientes</div><div class="value">15</div><div class="meter"><b style="width:72%"></b></div></div></div><div class="grid-2"><div class="card"><div class="card-head"><h3>Faturamento mensal</h3></div><div class="bars anim"><div class="col"><b class="r" style="--h:41%"></b></div><div class="col"><b class="r" style="--h:67%"></b></div><div class="col"><b class="r" style="--h:41%"></b></div><div class="col"><b class="r" style="--h:74%"></b></div><div class="col"><b class="r" style="--h:100%"></b></div><div class="col"><b class="r" style="--h:52%"></b></div><div class="col"><b class="r" style="--h:41%"></b></div><div class="col"><b class="r" style="--h:66%"></b></div><div class="col"><b class="r" style="--h:82%"></b></div><div class="col"><b class="r" style="--h:67%"></b></div><div class="col"><b class="r" style="--h:94%"></b></div><div class="col"><b class="r" style="--h:99%"></b></div></div><div class="xaxis"><span>ago</span><span>set</span><span>out</span><span>nov</span><span>dez</span><span>jan</span><span>fev</span><span>mar</span><span>abr</span><span>mai</span><span>jun</span><span>jul</span></div></div><div class="card"><div class="card-head"><h3>Faturamento por produto</h3></div><div class="donut-layout"><div class="donut" style="background:conic-gradient(var(--s1) 0% 35%,var(--s2) 35% 54%,var(--s4) 54% 72%,var(--s3) 72% 86%,var(--other) 86% 100%)"><span class="hole"><small>TOTAL</small><strong>R$ 314.653</strong></span></div><ul class="cat-list"><li><i style="background:var(--s1)"></i><span class="name">Implantação</span><span class="val">R$ 111.259</span><span class="pct">35%</span></li><li><i style="background:var(--s2)"></i><span class="name">Plano Profissional</span><span class="val">R$ 59.458</span><span class="pct">19%</span></li><li><i style="background:var(--s4)"></i><span class="name">Consultoria avulsa</span><span class="val">R$ 56.800</span><span class="pct">18%</span></li><li><i style="background:var(--s3)"></i><span class="name">Treinamento in company</span><span class="val">R$ 44.127</span><span class="pct">14%</span></li><li><i style="background:var(--other)"></i><span class="name">Outros</span><span class="val">R$ 43.009</span><span class="pct">14%</span></li></ul></div></div></div></div></div><div class="painel" data-nicho="marketing" aria-hidden=true><div class="mock"><div class="mock-top"><span class="title">Dashboard Marketing</span><span class="kit">DATALAB</span><span class="sp"></span><span class="chip">↻ Trocar planilha</span><span class="chip">◐</span></div><div class="kpi-grid"><div class="card kpi"><div class="label">Investimento total</div><div class="value">R$ 192.505</div><div class="delta up">▲ 2,3% vs mês anterior</div></div><div class="card kpi"><div class="label">Leads gerados</div><div class="value">10.247</div><div class="delta up">▲ 7,7% vs mês anterior</div></div><div class="card kpi"><div class="label">CAC</div><div class="value">R$ 198</div><div class="delta up">▼ 11,0% vs mês anterior</div></div><div class="card kpi"><div class="label">ROAS</div><div class="value">4,4</div><div class="delta up">▲ 17,8% vs mês anterior</div></div></div><div class="grid-2"><div class="card"><div class="card-head"><h3>Investimento x receita</h3></div><div class="bars anim"><div class="col"><b class="r" style="--h:69%"></b></div><div class="col"><b class="r" style="--h:70%"></b></div><div class="col"><b class="r" style="--h:72%"></b></div><div class="col"><b class="r" style="--h:100%"></b></div><div class="col"><b class="r" style="--h:99%"></b></div><div class="col"><b class="r" style="--h:62%"></b></div><div class="col"><b class="r" style="--h:64%"></b></div><div class="col"><b class="r" style="--h:83%"></b></div><div class="col"><b class="r" style="--h:84%"></b></div><div class="col"><b class="r" style="--h:84%"></b></div><div class="col"><b class="r" style="--h:85%"></b></div><div class="col"><b class="r" style="--h:87%"></b></div></div><div class="xaxis"><span>ago</span><span>set</span><span>out</span><span>nov</span><span>dez</span><span>jan</span><span>fev</span><span>mar</span><span>abr</span><span>mai</span><span>jun</span><span>jul</span></div></div><div class="card"><div class="card-head"><h3>Receita por canal</h3></div><div class="donut-layout"><div class="donut" style="background:conic-gradient(var(--s1) 0% 35%,var(--s2) 35% 65%,var(--s4) 65% 78%,var(--s3) 78% 88%,var(--other) 88% 100%)"><span class="hole"><small>TOTAL</small><strong>R$ 840.428</strong></span></div><ul class="cat-list"><li><i style="background:var(--s1)"></i><span class="name">Google Ads</span><span class="val">R$ 290.744</span><span class="pct">35%</span></li><li><i style="background:var(--s2)"></i><span class="name">Meta Ads</span><span class="val">R$ 253.556</span><span class="pct">30%</span></li><li><i style="background:var(--s4)"></i><span class="name">Indicação</span><span class="val">R$ 107.669</span><span class="pct">13%</span></li><li><i style="background:var(--s3)"></i><span class="name">TikTok Ads</span><span class="val">R$ 85.608</span><span class="pct">10%</span></li><li><i style="background:var(--other)"></i><span class="name">Outros</span><span class="val">R$ 102.851</span><span class="pct">12%</span></li></ul></div></div></div></div></div><div class="painel" data-nicho="restaurante" aria-hidden=true><div class="mock"><div class="mock-top"><span class="title">Dashboard Restaurante</span><span class="kit">DATALAB</span><span class="sp"></span><span class="chip">↻ Trocar planilha</span><span class="chip">◐</span></div><div class="kpi-grid"><div class="card kpi"><div class="label">Faturamento</div><div class="value">R$ 412.530</div><div class="delta up">▲ 8,8% vs mês anterior</div></div><div class="card kpi"><div class="label">Pedidos</div><div class="value">6.315</div><div class="delta up">▲ 9,8% vs mês anterior</div></div><div class="card kpi"><div class="label">Ticket médio</div><div class="value">R$ 65,33</div><div class="delta down">▼ 0,9% vs mês anterior</div></div><div class="card kpi"><div class="label">Itens vendidos</div><div class="value">10.707</div><div class="meter"><b style="width:64%"></b></div></div></div><div class="grid-2"><div class="card"><div class="card-head"><h3>Faturamento mensal</h3></div><div class="bars anim"><div class="col"><b class="r" style="--h:75%"></b></div><div class="col"><b class="r" style="--h:70%"></b></div><div class="col"><b class="r" style="--h:78%"></b></div><div class="col"><b class="r" style="--h:76%"></b></div><div class="col"><b class="r" style="--h:85%"></b></div><div class="col"><b class="r" style="--h:78%"></b></div><div class="col"><b class="r" style="--h:76%"></b></div><div class="col"><b class="r" style="--h:82%"></b></div><div class="col"><b class="r" style="--h:88%"></b></div><div class="col"><b class="r" style="--h:97%"></b></div><div class="col"><b class="r" style="--h:92%"></b></div><div class="col"><b class="r" style="--h:100%"></b></div></div><div class="xaxis"><span>ago</span><span>set</span><span>out</span><span>nov</span><span>dez</span><span>jan</span><span>fev</span><span>mar</span><span>abr</span><span>mai</span><span>jun</span><span>jul</span></div></div><div class="card"><div class="card-head"><h3>Faturamento por canal</h3></div><div class="donut-layout"><div class="donut" style="background:conic-gradient(var(--s1) 0% 47%,var(--s2) 47% 67%,var(--s4) 67% 85%,var(--s3) 85% 100%)"><span class="hole"><small>TOTAL</small><strong>R$ 412.530</strong></span></div><ul class="cat-list"><li><i style="background:var(--s1)"></i><span class="name">Salão</span><span class="val">R$ 192.097</span><span class="pct">47%</span></li><li><i style="background:var(--s2)"></i><span class="name">Delivery</span><span class="val">R$ 86.160</span><span class="pct">21%</span></li><li><i style="background:var(--s4)"></i><span class="name">iFood</span><span class="val">R$ 73.257</span><span class="pct">18%</span></li><li><i style="background:var(--s3)"></i><span class="name">Balcão</span><span class="val">R$ 61.016</span><span class="pct">15%</span></li></ul></div></div></div></div></div><div class="painel" data-nicho="ecommerce" aria-hidden=true><div class="mock"><div class="mock-top"><span class="title">Dashboard E-commerce</span><span class="kit">DATALAB</span><span class="sp"></span><span class="chip">↻ Trocar planilha</span><span class="chip">◐</span></div><div class="kpi-grid"><div class="card kpi"><div class="label">Faturamento</div><div class="value">R$ 178.094</div><div class="delta up">▲ 12,2% vs mês anterior</div></div><div class="card kpi"><div class="label">Pedidos</div><div class="value">707</div><div class="delta down">▼ 3,0% vs mês anterior</div></div><div class="card kpi"><div class="label">Ticket médio</div><div class="value">R$ 252</div><div class="delta up">▲ 15,7% vs mês anterior</div></div><div class="card kpi"><div class="label">Frete total</div><div class="value">R$ 7.077</div><div class="meter"><b style="width:38%"></b></div></div></div><div class="grid-2"><div class="card"><div class="card-head"><h3>Faturamento mensal</h3></div><div class="bars anim"><div class="col"><b class="r" style="--h:72%"></b></div><div class="col"><b class="r" style="--h:65%"></b></div><div class="col"><b class="r" style="--h:83%"></b></div><div class="col"><b class="r" style="--h:90%"></b></div><div class="col"><b class="r" style="--h:86%"></b></div><div class="col"><b class="r" style="--h:70%"></b></div><div class="col"><b class="r" style="--h:63%"></b></div><div class="col"><b class="r" style="--h:88%"></b></div><div class="col"><b class="r" style="--h:92%"></b></div><div class="col"><b class="r" style="--h:97%"></b></div><div class="col"><b class="r" style="--h:89%"></b></div><div class="col"><b class="r" style="--h:100%"></b></div></div><div class="xaxis"><span>ago</span><span>set</span><span>out</span><span>nov</span><span>dez</span><span>jan</span><span>fev</span><span>mar</span><span>abr</span><span>mai</span><span>jun</span><span>jul</span></div></div><div class="card"><div class="card-head"><h3>Faturamento por categoria</h3></div><div class="donut-layout"><div class="donut" style="background:conic-gradient(var(--s1) 0% 20%,var(--s2) 20% 37%,var(--s4) 37% 51%,var(--s3) 51% 66%,var(--other) 66% 100%)"><span class="hole"><small>TOTAL</small><strong>R$ 178.094</strong></span></div><ul class="cat-list"><li><i style="background:var(--s1)"></i><span class="name">Moda feminina</span><span class="val">R$ 35.299</span><span class="pct">20%</span></li><li><i style="background:var(--s2)"></i><span class="name">Eletrônicos</span><span class="val">R$ 30.789</span><span class="pct">17%</span></li><li><i style="background:var(--s4)"></i><span class="name">Casa e decoração</span><span class="val">R$ 25.628</span><span class="pct">14%</span></li><li><i style="background:var(--s3)"></i><span class="name">Calçados</span><span class="val">R$ 25.469</span><span class="pct">14%</span></li><li><i style="background:var(--other)"></i><span class="name">Outros</span><span class="val">R$ 60.909</span><span class="pct">34%</span></li></ul></div></div></div></div></div></div>
         </div>
       </div>
     </div>
   </section>
+  <!-- FIM-HERO -->
 
   <!-- ================= BIBLIOTECA ================= -->
   <section class="library" id="biblioteca">
@@ -248,8 +142,8 @@
   <section class="final" id="precos">
     <div class="wrap">
       <h2>Pare de olhar linhas.<br>Veja o negócio.</h2>
-      <p>Pagamento único de R$ 59,90, garantia de 7 dias e atualizações incluídas.</p>
-      <a class="btn btn-primary" href="https://pay.kiwify.com.br/V7R8a9d">Comprar agora</a>
+      <p>A partir de R$ 49,90, pagamento único, garantia de 7 dias e atualizações incluídas.</p>
+      <a class="btn btn-primary" href="#biblioteca">Escolher meu dashboard</a>
     </div>
   </section>
 </main>
@@ -263,9 +157,10 @@
 </footer>
 
 <div class="sticky-cta">
-  <a class="btn btn-primary" href="https://pay.kiwify.com.br/V7R8a9d">Comprar por R$ 59,90 — acesso imediato</a>
+  <a class="btn btn-primary" href="#biblioteca">Ver os 10 dashboards</a>
 </div>
 
+<script src="js/home.js"></script>
 <script src="js/tracking.js"></script>
 
 </body>

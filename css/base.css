@@ -193,3 +193,58 @@ footer .wrap{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;font:40
 .cookie-bar button.ok{background:var(--brand);color:var(--brand-ink);border-color:var(--brand)}
 .cookie-bar button.ok:hover{background:var(--brand-hover);color:var(--brand-ink)}
 @media (max-width:640px){.cookie-bar{bottom:74px}}
+
+/* ---------- vitrine do hero: painéis que alternam entre nichos ---------- */
+.vitrine{margin-bottom:64px}
+.abas{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-bottom:18px}
+.aba{appearance:none;border:1px solid var(--border);background:var(--surface);color:var(--ink-2);
+  font:500 13px/1 var(--font-sans);padding:9px 15px;border-radius:999px;cursor:pointer;
+  transition:color .2s,border-color .2s,background .2s}
+.aba:hover{color:var(--ink-1);border-color:var(--ink-3)}
+.aba.ativa{background:var(--brand);border-color:var(--brand);color:var(--brand-ink);font-weight:600}
+.aba:focus-visible{outline:3px solid var(--brand);outline-offset:3px}
+
+.paineis{position:relative}
+.painel{display:none}
+.painel.ativo{display:block;animation:painel-entra .45s ease-out both}
+@keyframes painel-entra{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* barras crescem de baixo para cima quando o painel entra */
+.bars.anim .col b{height:var(--h);transform-origin:bottom;animation:barra-sobe .55s cubic-bezier(.2,.8,.2,1) both}
+.bars.anim .col:nth-child(1) b{animation-delay:.02s}
+.bars.anim .col:nth-child(2) b{animation-delay:.05s}
+.bars.anim .col:nth-child(3) b{animation-delay:.08s}
+.bars.anim .col:nth-child(4) b{animation-delay:.11s}
+.bars.anim .col:nth-child(5) b{animation-delay:.14s}
+.bars.anim .col:nth-child(6) b{animation-delay:.17s}
+.bars.anim .col:nth-child(7) b{animation-delay:.20s}
+.bars.anim .col:nth-child(8) b{animation-delay:.23s}
+.bars.anim .col:nth-child(9) b{animation-delay:.26s}
+.bars.anim .col:nth-child(10) b{animation-delay:.29s}
+.bars.anim .col:nth-child(11) b{animation-delay:.32s}
+.bars.anim .col:nth-child(12) b{animation-delay:.35s}
+@keyframes barra-sobe{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+
+/* rosca desenha ao entrar */
+.painel.ativo .donut{animation:donut-entra .6s .1s ease-out both}
+@keyframes donut-entra{from{opacity:0;transform:rotate(-25deg) scale(.9)}to{opacity:1;transform:none}}
+
+/* KPIs entram escalonados */
+.painel.ativo .kpi-grid .kpi{animation:kpi-entra .4s ease-out both}
+.painel.ativo .kpi-grid .kpi:nth-child(2){animation-delay:.06s}
+.painel.ativo .kpi-grid .kpi:nth-child(3){animation-delay:.12s}
+.painel.ativo .kpi-grid .kpi:nth-child(4){animation-delay:.18s}
+@keyframes kpi-entra{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* cartões da biblioteca aparecem conforme entram na tela */
+.js .dash-card{opacity:0;transform:translateY(10px);transition:opacity .45s ease-out,transform .45s ease-out,border-color .2s}
+.js .dash-card.visivel{opacity:1;transform:none}
+
+@media (prefers-reduced-motion:reduce){
+  .painel.ativo,.bars.anim .col b,.painel.ativo .donut,.painel.ativo .kpi-grid .kpi{animation:none!important}
+  .js .dash-card{opacity:1;transform:none;transition:border-color .2s}
+}
+@media (max-width:640px){
+  .abas{gap:5px}
+  .aba{font-size:12px;padding:8px 12px}
+}
