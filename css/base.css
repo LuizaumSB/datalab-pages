@@ -8,7 +8,7 @@
   --ink-1:#fff; --ink-2:#c3c2b7; --ink-3:#898781;
   --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --s5:#d55181; --s7:#9085e9; --other:#898781;
   --good:#1baf7a; --delta-good:#0ca30c; --delta-bad:#e66767;
-  /* marca (logo Data[LAB]) */
+  /* marca (logo "D de colchetes") */
   --brand:#29ab6f; --brand-hover:#31c37f; --brand-ink:#0d0d0d;
   --cta:var(--brand); --cta-hover:var(--brand-hover);
   --radius:12px; --radius-lg:14px;
@@ -39,7 +39,20 @@ img{max-width:100%;height:auto;display:block}
 header{background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:40}
 header .wrap{display:flex;align-items:center;gap:28px;padding-top:16px;padding-bottom:16px}
 .logo{display:flex;align-items:center;text-decoration:none;--logo-ink:var(--ink-1)}
-.logo img,.logo svg{height:22px;width:auto;display:block}
+.logo img,.logo svg{height:22px;width:auto;display:block;overflow:visible}
+/* logo animada: os colchetes se fecham em volta do dado, a célula acende, o nome entra */
+.logo .dl-bl,.logo .dl-br,.logo .dl-cell,.logo .dl-word{transform-box:fill-box;transform-origin:center}
+.logo .dl-bl{animation:dl-bl .7s cubic-bezier(.2,.8,.2,1) both}
+.logo .dl-br{animation:dl-br .7s cubic-bezier(.2,.8,.2,1) both}
+.logo .dl-cell{animation:dl-cell .45s cubic-bezier(.3,1.6,.5,1) .45s both}
+.logo .dl-word{animation:dl-word .6s ease-out .3s both}
+.logo:hover .dl-cell{animation:dl-blink .9s steps(2,jump-none) 2}
+@keyframes dl-bl{from{transform:translateX(-45%);opacity:0}}
+@keyframes dl-br{from{transform:translateX(30%);opacity:0}}
+@keyframes dl-cell{from{transform:scale(0)}}
+@keyframes dl-word{from{transform:translateX(-4%);opacity:0}}
+@keyframes dl-blink{50%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.logo svg *{animation:none!important}}
 header nav{display:flex;gap:24px;font:500 13.5px/1 var(--font-sans);margin-left:auto}
 header nav a{color:var(--ink-2);text-decoration:none}
 header nav a:hover{color:var(--ink-1)}
